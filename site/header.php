@@ -7,6 +7,7 @@
 
     <title>Ferme les Vieilles Forges</title>
 
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header/header.css">
 </head>
 
@@ -16,15 +17,15 @@
         <h1>Ferme les Vieilles Forges</h1>
 
         <figure>
-            <img src="#" alt="Face picture">
+            <img src="assets/img/elon_musk.jpg" alt="Face picture">
             <figcaption>
-                <div id="name">
-                    Karol<b>Destroismaisons</b>
+                <div display id="name">
+                    Karol<br><b>Destroismaisons</b>
                 </div>
-                <form action="" method="post">
-                    <button type="submit" name="logout-submit">Déconnexion</button>
-                </form>
                 <button id="login-button">Se connecter</button>
+                <form action="" method="post">
+                    <button display type="submit" name="logout-submit">Déconnexion</button>
+                </form>
             </figcaption>
         </figure>
 
