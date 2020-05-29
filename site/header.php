@@ -14,19 +14,24 @@
 <body>
 
     <header>
-        <h1>Ferme les Vieilles Forges</h1>
+        <h1>Ferme<br>les Vieilles Forges</h1>
 
         <figure>
-            <img src="assets/img/elon_musk.jpg" alt="Face picture">
-            <figcaption>
-                <div display id="name">
-                    Karol<br><b>Destroismaisons</b>
-                </div>
-                <button id="login-button">Se connecter</button>
-                <form action="" method="post">
-                    <button display type="submit" name="logout-submit">Déconnexion</button>
-                </form>
-            </figcaption>
+            <div class="wrapper">
+                <img src="assets/img/elon_musk.jpg" alt="Face picture">
+                <figcaption>
+                    <div class="wrapper">
+                        <div display id="name">
+                            Karol<br><b>Destroismaisons</b>
+                        </div>
+                        <button id="login-button">Se connecter</button>
+                        <form action="" method="post">
+                            <button display type="submit" name="logout-submit">Déconnexion</button>
+                        </form>
+                    </div>
+                </figcaption>
+            </div>
+
         </figure>
 
         <nav>

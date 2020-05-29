@@ -16,8 +16,8 @@
 header {
   width: 60%;
   max-width: 400px;
-  margin-top: 50px;
-  padding: 10% 0 15% 0;
+  margin-top: 40px;
+  padding: 10% 0 40% 0;
   float: right;
   overflow: hidden;
   margin-right: auto;
@@ -78,7 +78,7 @@ header figure figcaption button[display] {
   display: block;
 }
 
-header figure figcaption button:hover {
+header figure .wrapper figcaption button:hover {
   font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
 }
 
@@ -110,7 +110,133 @@ header nav ul li a:hover {
 
 @media only screen and (min-width: 700px) {
   header {
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 80px;
+    width: 90%;
+    max-width: none;
+    margin: 40px auto 0 auto;
+    border-radius: 30px;
+    float: none;
+    padding: 0;
+  }
+  header h1 {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+    font-size: clamp(18px, 1.5vw, 25px);
+    margin: 0 12px;
+    text-align: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  header h1 br {
+    display: block;
+  }
+  header nav {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    height: 80px;
+    line-height: 80px;
+    vertical-align: middle;
+  }
+  header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  header nav ul li a {
+    font-size: clamp(14px, 1.5vw, 18px);
+    padding: 5px 9px;
+  }
+  header nav ul li a:hover {
+    padding: 5px 8px;
+  }
+  header figure {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    margin: 0 30px 0 auto;
+    text-align: right;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  header figure .wrapper {
+    height: 100%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  header figure img {
+    display: inline-block;
+    height: 80%;
+    width: auto;
+    padding: 10px 4px;
+    margin: 0;
+  }
+  header figure figcaption {
+    margin: 0;
+    height: 100%;
+    display: inline-block;
+  }
+  header figure figcaption .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    height: calc(100% - 20px);
+    padding: 10px 4px;
+  }
+  header figure figcaption #name,
+  header figure figcaption button {
+    font-size: clamp(14px, 1.5vw, 18px);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  header figure .wrapper:hover figcaption #name {
+    opacity: 0;
+    visibility: hidden;
+  }
+  header figure figcaption form {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    margin: 0;
+  }
+  header figure .wrapper figcaption button {
+    text-align: center;
+    padding: 0 1px;
+  }
+  header figure .wrapper:hover figcaption form {
+    opacity: 1;
+    visibility: visible;
+  }
+  header figure .wrapper figcaption button:hover {
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  header h1 {
+    margin: 0 50px;
+  }
+  header figure img {
+    padding: 10px;
+  }
+  header figure figcaption .wrapper {
+    padding: 10px;
   }
 }
 /*# sourceMappingURL=header.css.map */
