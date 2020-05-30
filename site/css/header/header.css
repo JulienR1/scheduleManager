@@ -54,10 +54,6 @@ header figure figcaption #name {
   display: none;
 }
 
-header figure figcaption #name[display] {
-  display: block;
-}
-
 header figure figcaption #name b {
   font-family: "open-sans-bold", Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -72,10 +68,6 @@ header figure figcaption button {
   border: none;
   display: none;
   cursor: pointer;
-}
-
-header figure figcaption button[display] {
-  display: block;
 }
 
 header figure .wrapper figcaption button:hover {

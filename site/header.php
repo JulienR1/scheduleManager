@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header/header.css">
+    <link rel="stylesheet" href="css/header/connection.css">
 </head>
 
 <body>
@@ -21,12 +22,12 @@
                 <img src="assets/img/elon_musk.jpg" alt="Face picture">
                 <figcaption>
                     <div class="wrapper">
-                        <div display id="name">
+                        <div id="name">
                             Karol<br><b>Destroismaisons</b>
                         </div>
-                        <button id="login-button">Se connecter</button>
+                        <button display id="login-button" onclick="openLogin()">Se connecter</button>
                         <form action="" method="post">
-                            <button display type="submit" name="logout-submit">Déconnexion</button>
+                            <button type="submit" name="logout-submit">Déconnexion</button>
                         </form>
                     </div>
                 </figcaption>
@@ -42,3 +43,29 @@
             </ul>
         </nav>
     </header>
+
+    <section id="login">
+        <h2>Se connecter</h2>
+        <form action="" method="post">
+            <input type="text" name="email" placeholder="Courriel">
+            <input type="password" name="password" placeholder="Mot de passe">
+            <button type="submit" name="login-submit">Ok</button>
+        </form>
+
+        <button class="navButton" onclick="openSignup()">Créer un compte</button>
+        <button class="navButton" onclick="openForgotPassword()">Mot de passe oublié?</button>
+    </section>
+
+    <section id="signup">
+        <h2>Créer un compte</h2>
+        <form action="" method="post">
+            <input type="text" name="firstname" placeholder="Prénom">
+            <input type="text" name="lastname" placeholder="Nom de famille">
+            <input type="text" name="email" placeholder="Courriel">
+            <input type="password" name="password" placeholder="Mot de passe">
+            <input type="password" name="password-repeat" placeholder="Confirmer le mot de passe">
+            <button type="submit" name="signup-submit">S'inscrire</button>
+        </form>
+    </section>
+
+    <div id="dark-overlay"></div>
