@@ -106,12 +106,12 @@ function getDataFromURL($tag)
     echo '<p class="error-msg">Le nom et le courriel sont invalides.</p>';}?>
 
         <form action="php/signup.php" method="post">
-            <input type="text" name="firstname" placeholder="Prénom">
-            <input type="text" name="lastname" placeholder="Nom de famille">
+            <input type="text" name="firstname" placeholder="Prénom" value="<?php echo getDataFromURL("fn"); ?>">
+            <input type="text" name="lastname" placeholder="Nom de famille" value="<?php echo getDataFromURL("ln"); ?>">
             <?php if (getDataFromURL("err") == "invalidname") {
     echo '<p class="error-msg">Les noms doivent être composés de lettres uniquement.</p>';}?>
 
-            <input type="text" name="email" placeholder="Courriel">
+            <input type="text" name="email" placeholder="Courriel" value="<?php echo getDataFromURL("m"); ?>">
             <?php if (getDataFromURL("err") == "invalidmail" || getDataFromURL("err") == "emailtaken") {
     echo '<p class="error-msg">Le courriel est invalide ou est déjà enregistré.</p>';}?>
 
