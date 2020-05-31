@@ -45,6 +45,11 @@ if (isset($_POST["signup-submit"])) {
             $query = "INSERT INTO users (firstname, lastname, email, pwd, creationDate, isAdmin, img) VALUES (?, ?, ?, ?, CURDATE(), FALSE, NULL)";
             executeSQL($query, "ssss", $firstname, $lastname, $email, $hashedPassword);
 
+            $_SESSION["userID"] = mysqli_fetch_assoc(executeSQL("SELECT id FROM users WHERE email=?", "s", $email))["id"];
+            $_SESSION["userFirstname"] = $firstname;
+            $_SESSION["userLastname"] = $lastname;
+            $_SESSION["userImg"] = null;
+
             header("Location: " . $pageToLoad . "?signup=s");
             exit();
         }
