@@ -31,6 +31,11 @@ header h1 {
   display: none;
 }
 
+header h1 a {
+  text-decoration: none;
+  color: #303030;
+}
+
 header figure {
   margin: 15% 0;
 }
@@ -43,6 +48,15 @@ header figure img {
   border-radius: 50%;
 }
 
+header figure > .wrapper {
+  text-align: center;
+}
+
+header figure i {
+  font-size: 15vw;
+  text-align: center;
+}
+
 header figure figcaption {
   margin: 10%;
   text-align: center;
@@ -51,7 +65,7 @@ header figure figcaption {
 header figure figcaption #name {
   font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
   font-size: clamp(13px, 4.5vw, 40px);
-  display: none;
+  display: block;
 }
 
 header figure figcaption #name b {
@@ -66,7 +80,7 @@ header figure figcaption button {
   outline: none;
   background: none;
   border: none;
-  display: none;
+  display: block;
   cursor: pointer;
 }
 
@@ -118,7 +132,7 @@ header nav ul li a:hover {
     display: -ms-inline-flexbox;
     display: inline-flex;
     font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
-    font-size: clamp(18px, 1.5vw, 25px);
+    font-size: clamp(18px, 1.35vw, 25px);
     margin: 0 12px;
     text-align: center;
     -ms-flex-item-align: center;
@@ -174,6 +188,14 @@ header nav ul li a:hover {
     padding: 10px 4px;
     margin: 0;
   }
+  header figure i {
+    font-size: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
   header figure figcaption {
     margin: 0;
     height: 100%;
@@ -189,12 +211,14 @@ header nav ul li a:hover {
     position: relative;
     height: calc(100% - 20px);
     padding: 10px 4px;
+    min-width: 115px;
   }
   header figure figcaption #name,
   header figure figcaption button {
     font-size: clamp(14px, 1.5vw, 18px);
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
+    margin: 0 auto;
   }
   header figure .wrapper:hover figcaption #name {
     opacity: 0;

@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION["currentPage"] = $_SERVER["PHP_SELF"];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,25 +16,43 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header/header.css">
     <link rel="stylesheet" href="css/header/connection.css">
+
+    <script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <header>
-        <h1>Ferme<br>les Vieilles Forges</h1>
+        <h1><a href="/">Ferme<br>les Vieilles Forges</a></h1>
 
         <figure>
             <div class="wrapper">
-                <img src="assets/img/elon_musk.jpg" alt="Face picture">
+                <?php
+if (isset($_SESSION["userID"])) {
+    if (isset($_SESSION["userImg"])) {
+        echo '<img src="' . $_SESSION["userImg"] . '" alt="Face">';
+    } else {
+        echo '<i class="fas fa-user"></i>';
+    }
+}
+?>
                 <figcaption>
                     <div class="wrapper">
-                        <div id="name">
-                            Karol<br><b>Destroismaisons</b>
-                        </div>
-                        <button display id="login-button" onclick="openLogin()">Se connecter</button>
-                        <form action="" method="post">
-                            <button type="submit" name="logout-submit">Déconnexion</button>
-                        </form>
+                        <?php
+echo '<div id="name">';
+if (isset($_SESSION["userFirstname"]) && isset($_SESSION["userLastname"])) {
+    echo $_SESSION["userFirstname"] . "<br><b>" . $_SESSION["userLastname"] . "</b>";
+}
+echo '</div>';
+
+if (!isset($_SESSION["userID"])) {
+    echo '<button display id="login-button" onclick="openLogin()">Se connecter</button>';
+} else {
+    echo '<form action="php/logout.php" method="post">
+            <button type="submit" name="logout-submit">Déconnexion</button>
+        </form>';
+}
+?>
                     </div>
                 </figcaption>
             </div>
@@ -46,7 +70,7 @@
 
     <section id="login">
         <h2>Se connecter</h2>
-        <form action="" method="post">
+        <form action="php/login.php" method="post">
             <input type="text" name="email" placeholder="Courriel">
             <input type="password" name="password" placeholder="Mot de passe">
             <button type="submit" name="login-submit">Ok</button>
@@ -58,7 +82,7 @@
 
     <section id="signup">
         <h2>Créer un compte</h2>
-        <form action="" method="post">
+        <form action="php/signup.php" method="post">
             <input type="text" name="firstname" placeholder="Prénom">
             <input type="text" name="lastname" placeholder="Nom de famille">
             <input type="text" name="email" placeholder="Courriel">

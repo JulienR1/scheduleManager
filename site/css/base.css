@@ -118,7 +118,7 @@ header nav ul li a:hover {
     display: -ms-inline-flexbox;
     display: inline-flex;
     font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
-    font-size: clamp(18px, 1.5vw, 25px);
+    font-size: clamp(18px, 1.35vw, 25px);
     margin: 0 12px;
     text-align: center;
     -ms-flex-item-align: center;
@@ -252,10 +252,9 @@ body[noscroll] {
   overflow: hidden;
 }
 
-*[display] {
+/**[display] {
   display: block !important;
-}
-
+}*/
 #dark-overlay {
   width: 100%;
   height: 100%;
