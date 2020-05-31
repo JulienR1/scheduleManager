@@ -68,11 +68,30 @@ if (!isset($_SESSION["userID"])) {
         </nav>
     </header>
 
-    <section id="login">
+    <?php
+function getDataFromURL($tag)
+{
+    if (isset($_GET[$tag])) {
+        return $_GET[$tag];
+    }
+}
+?>
+
+    <section id="login" <?php if (isset($_GET["login"]) && $_GET["login"] == "f") {echo 'active';}?>>
         <h2>Se connecter</h2>
+
+        <?php if (getDataFromURL("err") == "emptyfields") {
+    echo '<p class="error-msg">Une valeur est requise pour tous les champs.</p>';}?>
+
         <form action="php/login.php" method="post">
             <input type="text" name="email" placeholder="Courriel">
+            <?php if (getDataFromURL("err") == "nouser") {
+    echo '<p class="error-msg">Aucun utilisateur enregistré avec ce courriel.</p>';}?>
+
             <input type="password" name="password" placeholder="Mot de passe">
+            <?php if (getDataFromURL("err") == "invalidpassword") {
+    echo '<p class="error-msg">Le mot de passe est erroné.</p>';}?>
+
             <button type="submit" name="login-submit">Ok</button>
         </form>
 
@@ -80,16 +99,34 @@ if (!isset($_SESSION["userID"])) {
         <button class="navButton" onclick="openForgotPassword()">Mot de passe oublié?</button>
     </section>
 
-    <section id="signup">
+    <section id="signup" <?php if (isset($_GET["signup"]) && $_GET["signup"] == "f") {echo 'active';}?>>
         <h2>Créer un compte</h2>
+        <?php if (getDataFromURL("err") == "emptyfields") {
+    echo '<p class="error-msg">Une valeur est requise pour tous les champs.</p>';} else if (getDataFromURL("err") == "invaliddata") {
+    echo '<p class="error-msg">Le nom et le courriel sont invalides.</p>';}?>
+
         <form action="php/signup.php" method="post">
             <input type="text" name="firstname" placeholder="Prénom">
             <input type="text" name="lastname" placeholder="Nom de famille">
+            <?php if (getDataFromURL("err") == "invalidname") {
+    echo '<p class="error-msg">Les noms doivent être composés de lettres uniquement.</p>';}?>
+
             <input type="text" name="email" placeholder="Courriel">
+            <?php if (getDataFromURL("err") == "invalidmail" || getDataFromURL("err") == "emailtaken") {
+    echo '<p class="error-msg">Le courriel est invalide ou est déjà enregistré.</p>';}?>
+
             <input type="password" name="password" placeholder="Mot de passe">
+            <?php if (getDataFromURL("err") == "invalidpassword") {
+    echo '<p class="error-msg">Un mot de passe doit contenir au moins 6 caractères.</p>';}?>
+
             <input type="password" name="password-repeat" placeholder="Confirmer le mot de passe">
+            <?php if (getDataFromURL("err") == "passwordcheck") {
+    echo '<p class="error-msg">Les mots de passe ne correspondent pas.</p>';}?>
+
             <button type="submit" name="signup-submit">S'inscrire</button>
         </form>
     </section>
 
-    <div id="dark-overlay"></div>
+    <?php
+echo '<div ' . (((isset($_GET["login"]) && $_GET["login"] == "f") || (isset($_GET["signup"])) && $_GET["signup"] == "f") ? 'active' : '') . ' id="dark-overlay"></div>';
+?>

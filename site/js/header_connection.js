@@ -1,5 +1,7 @@
 document.addEventListener("keydown", (e) => {
   if (e.key == "Escape") {
+    e.preventDefault();
+    e.stopPropagation();
     closeWindow();
   }
 });
@@ -43,7 +45,9 @@ function closeWindow() {
   login.removeAttribute(ACTIVE_ATTR);
   signup.removeAttribute(ACTIVE_ATTR);
   unlockScroll();
-  console.log("dawda");
+  window.location.search = "";
+
+  console.log("call");
 }
 
 function unlockScroll() {

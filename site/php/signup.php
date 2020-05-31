@@ -16,28 +16,28 @@ if (isset($_POST["signup-submit"])) {
     $passwordRepeat = $_POST["password-repeat"];
 
     if (empty($firstname) || empty($lastname) || empty($email) || empty($password) || empty($passwordRepeat)) {
-        header("Location: " . $pageToLoad . "?err=emptyfields&fn=" . $firstname . "&ln=" . $lastname . "&m=" . $email);
+        header("Location: " . $pageToLoad . "?signup=f&err=emptyfields&fn=" . $firstname . "&ln=" . $lastname . "&m=" . $email);
         exit();
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z]*$/", $firstname . $lastname)) {
-        header("Location: " . $pageToLoad . "?err=invaliddata");
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z,.'-]*$/", $firstname . $lastname)) {
+        header("Location: " . $pageToLoad . "?signup=f&err=invaliddata");
         exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: " . $pageToLoad . "?err=invalidmail&fn=" . $firstname . "&ln=" . $lastname);
+        header("Location: " . $pageToLoad . "?signup=f&err=invalidmail&fn=" . $firstname . "&ln=" . $lastname);
         exit();
-    } else if (!preg_match("/^[a-zA-Z]*$/", $firstname . $lastname)) {
-        header("Location: " . $pageToLoad . "?err=invalidname&m=" . $email);
+    } else if (!preg_match("/^[a-zA-Z,.'-]*$/", $firstname . $lastname)) {
+        header("Location: " . $pageToLoad . "?signup=f&err=invalidname&m=" . $email);
         exit();
     } else if (strlen($password) < $MIN_PASSWORD_LENGTH) {
-        header("Location: " . $pageToLoad . "?err=invalidpassword&fn=" . $firstname . "&ln=" . $lastname . "&m=" . $email);
+        header("Location: " . $pageToLoad . "?signup=f&err=invalidpassword&fn=" . $firstname . "&ln=" . $lastname . "&m=" . $email);
         exit();
     } else if ($password !== $passwordRepeat) {
-        header("Location: " . $pageToLoad . "?err=passwordcheck&fn=" . $firstname . "&ln=" . $lastname . "&m=" . $email);
+        header("Location: " . $pageToLoad . "?signup=f&err=passwordcheck&fn=" . $firstname . "&ln=" . $lastname . "&m=" . $email);
         exit();
     } else {
         $query = "SELECT id FROM users WHERE email=?";
         $userRows = executeSQL($query, "s", $email);
         if (mysqli_num_rows($userRows) > 0) {
-            header("Location: " . $pageToLoad . "?err=emailtaken&fn=" . $firstname . "&ln=" . $lastname);
+            header("Location: " . $pageToLoad . "?signup=f&err=emailtaken&fn=" . $firstname . "&ln=" . $lastname);
             exit();
         } else {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -46,6 +46,7 @@ if (isset($_POST["signup-submit"])) {
             executeSQL($query, "ssss", $firstname, $lastname, $email, $hashedPassword);
 
             header("Location: " . $pageToLoad . "?signup=s");
+            exit();
         }
     }
 } else {

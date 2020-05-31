@@ -11,7 +11,7 @@ if (isset($_POST["login-submit"])) {
     $password = $_POST["password"];
 
     if (empty($email) || empty($password)) {
-        header("Location: " . $pageToLoad . "?err=emptyfields");
+        header("Location: " . $pageToLoad . "?login=f&err=emptyfields");
         exit();
     } else {
         $query = "SELECT * FROM users WHERE email=?";
@@ -19,7 +19,7 @@ if (isset($_POST["login-submit"])) {
         if ($row = mysqli_fetch_assoc($userData)) {
             $passwordCheck = password_verify($password, $row["pwd"]);
             if ($passwordCheck == false || $passwordCheck != true) {
-                header("Location: " . $pageToLoad . "?err=invalidpassword");
+                header("Location: " . $pageToLoad . "?login=f&err=invalidpassword");
                 exit();
             } else {
                 $_SESSION["userID"] = $row["id"];
@@ -31,7 +31,7 @@ if (isset($_POST["login-submit"])) {
                 exit();
             }
         } else {
-            header("Location: " . $pageToLoad . "?err=nouser");
+            header("Location: " . $pageToLoad . "?login=f&err=nouser");
             exit();
         }
     }

@@ -13,6 +13,14 @@
   src: url("/assets/fonts/Montserrat-Light.ttf");
 }
 
+.error-msg {
+  font-family: "montserrat-semibold", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  padding: 0 10px;
+  text-align: center;
+  color: #df0508;
+}
+
 #login,
 #signup {
   position: fixed;
