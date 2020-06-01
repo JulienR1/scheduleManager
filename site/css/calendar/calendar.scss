@@ -1,0 +1,45 @@
+@font-face {
+  font-family: open-sans-semibold;
+  src: url("/assets/fonts/OpenSans-SemiBold.ttf");
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10%;
+  padding-top: 40px;
+}
+
+main #calendar {
+  order: -1;
+}
+
+main #calendar h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 30px;
+  padding: 10px 4%;
+}
+
+main #calendar input {
+  font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 3vw, 25px);
+  border: none;
+  outline: none;
+  text-transform: capitalize;
+}
+
+main #calendar h3 button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+main #calendar h3 button i {
+  font-size: clamp(16px, 5vw, 25px);
+}

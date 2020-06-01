@@ -1,0 +1,60 @@
+@font-face {
+  font-family: open-sans-semibold;
+  src: url("/assets/fonts/OpenSans-SemiBold.ttf");
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10%;
+  padding-top: 40px;
+}
+
+main #calendar {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+
+main #calendar h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #fff;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 30px;
+  padding: 10px 4%;
+}
+
+main #calendar input {
+  font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 3vw, 25px);
+  border: none;
+  outline: none;
+  text-transform: capitalize;
+}
+
+main #calendar h3 button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+main #calendar h3 button i {
+  font-size: clamp(16px, 5vw, 25px);
+}
+/*# sourceMappingURL=calendar.css.map */

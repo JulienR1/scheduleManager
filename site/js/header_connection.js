@@ -6,17 +6,83 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+document.addEventListener("touchstart", handleTouchStart, false);
+document.addEventListener("touchmove", handleTouchMove, false);
+
+var xDown = null;
+var yDown = null;
+
+function handleTouchStart(e) {
+  const firstTouch = e.touches[0];
+  xDown = firstTouch.clientX;
+  yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(e) {
+  if (!xDown || !yDown) {
+    return;
+  }
+
+  var xUp = e.touches[0].clientX;
+  var yUp = e.touches[0].clientY;
+
+  var deltaX = xDown - xUp;
+  var deltaY = yDown - yUp;
+
+  if (
+    Math.abs(deltaX) > Math.abs(deltaY) &&
+    !backdrop.hasAttribute(ACTIVE_ATTR)
+  ) {
+    if (deltaX > 0) {
+      openHeader();
+    } else {
+      closeHeader();
+    }
+  }
+
+  xDown = null;
+  yDown = null;
+}
+
 const ACTIVE_ATTR = "active";
+const DOCKED_ATTR = "isDocked";
 
 backdrop = document.getElementById("dark-overlay");
 signup = document.getElementById("signup");
 login = document.getElementById("login");
 
+header = document.querySelector("header");
+main = document.querySelector("main");
+
 backdrop.addEventListener("click", (e) => {
-  e.preventDefault();
   e.stopPropagation();
   closeWindow();
 });
+
+document.body.addEventListener("click", (e) => {
+  e.stopPropagation();
+  closeHeader();
+});
+
+function toggleHeader(e) {
+  e.stopPropagation();
+
+  if (header.hasAttribute(DOCKED_ATTR)) {
+    openHeader();
+  } else {
+    closeHeader();
+  }
+}
+
+function openHeader() {
+  header.removeAttribute(DOCKED_ATTR);
+  main.setAttribute(DOCKED_ATTR, "");
+}
+
+function closeHeader() {
+  header.setAttribute(DOCKED_ATTR, "");
+  main.removeAttribute(DOCKED_ATTR);
+}
 
 function openLogin() {
   backdrop.setAttribute(ACTIVE_ATTR, "");
@@ -45,9 +111,8 @@ function closeWindow() {
   login.removeAttribute(ACTIVE_ATTR);
   signup.removeAttribute(ACTIVE_ATTR);
   unlockScroll();
+  closeHeader();
   window.location.search = "";
-
-  console.log("call");
 }
 
 function unlockScroll() {

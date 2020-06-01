@@ -13,21 +13,35 @@
   src: url("/assets/fonts/OpenSans-Bold.ttf");
 }
 
-$header-height: 80px;
-$topMargin: 40px;
-$borderRadius: 30px;
+@import "../variables";
 
 header {
+  position: fixed;
+  right: 0;
   width: 60%;
+  z-index: 1;
   max-width: 400px;
   margin-top: $topMargin;
   padding: 10% 0 40% 0;
-  float: right;
   overflow: hidden;
   margin-right: auto;
   background-color: #fff;
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.16);
   border-radius: $borderRadius 0px 0px $borderRadius;
+
+  transition: right $headerSlideTime ease;
+}
+
+header[isdocked] {
+  right: -65%;
+}
+
+main {
+  transition: transform $headerSlideTime ease;
+}
+
+main[isdocked] {
+  transform: translateX(-75%);
 }
 
 header h1 {
@@ -127,6 +141,20 @@ header nav ul li a:hover {
     border-radius: $borderRadius;
     float: none;
     padding: 0;
+
+    transition-duration: 0s;
+  }
+
+  header[isdocked] {
+    right: 0;
+  }
+
+  main {
+    transition-duration: 0s;
+  }
+
+  main[isdocked] {
+    transform: translateX(0);
   }
 
   header h1 {

@@ -1,4 +1,4 @@
-@import "header/header";
+@import "variables";
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  min-height: calc(100% - $topMargin);
+  min-height: calc(100% - #{$topMargin});
 }
 
 body {
@@ -26,7 +26,7 @@ body[noscroll] {
   top: 0;
   position: fixed;
   background-color: #000;
-  z-index: 0;
+  z-index: 1;
 
   opacity: 0;
   visibility: hidden;

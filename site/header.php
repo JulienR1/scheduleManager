@@ -17,12 +17,21 @@ $_SESSION["currentPage"] = $_SERVER["PHP_SELF"];
     <link rel="stylesheet" href="css/header/header.css">
     <link rel="stylesheet" href="css/header/connection.css">
 
+    <?php
+if (strpos($_SESSION["currentPage"], "calendar") !== false) {
+    echo '<link rel="stylesheet" href="css/calendar/calendar.css">';
+}
+?>
+
     <script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <header>
+    <header <?php if (!(isset($_GET["login"]) && $_GET["login"] == "f") || (isset($_GET["signup"]) && $_GET["signup"] == "f")) {
+    echo "isDocked";
+}
+?>>
         <h1><a href="/">Ferme<br>les Vieilles Forges</a></h1>
 
         <figure>
