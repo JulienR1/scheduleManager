@@ -35,4 +35,41 @@ body[noscroll] {
   opacity: 0.3;
   visibility: visible;
 }
+
+#header-toggle {
+  background: none;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+#header-toggle i {
+  font-size: clamp(16px, 5vw, 25px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#header-toggle i:first-child {
+  opacity: 1;
+}
+
+#header-toggle i:last-child {
+  opacity: 0;
+  position: absolute;
+  top: 1px;
+}
+
+#header-toggle[isDocked] i:first-child {
+  opacity: 0;
+}
+
+#header-toggle[isDocked] i:last-child {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 700px) {
+  #header-toggle {
+    display: none;
+  }
+}
 /*# sourceMappingURL=base.css.map */

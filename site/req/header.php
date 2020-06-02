@@ -70,7 +70,7 @@ if (!isset($_SESSION["userID"])) {
 
         <nav>
             <ul>
-                <li><a href="#">Horaire</a></li>
+                <li><a href="calendar.php">Horaire</a></li>
                 <li><a href="#">Mes dispos</a></li>
                 <li><a href="#">Mes heures</a></li>
             </ul>

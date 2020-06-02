@@ -6,7 +6,7 @@
 main {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   margin-bottom: 10%;
   padding-top: 40px;
@@ -26,20 +26,11 @@ main #calendar h3 {
   padding: 10px 4%;
 }
 
-main #calendar input {
+main #calendar h3 #month {
   font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
   font-size: clamp(15px, 3vw, 25px);
-  border: none;
-  outline: none;
   text-transform: capitalize;
-}
-
-main #calendar h3 button {
   background: none;
   border: none;
   outline: none;
-}
-
-main #calendar h3 button i {
-  font-size: clamp(16px, 5vw, 25px);
 }

@@ -1,5 +1,5 @@
 <?php
-require "header.php";
+require "req/header.php";
 ?>
 
 <main>
@@ -7,8 +7,9 @@ require "header.php";
 
     <section id="calendar">
         <h3>
-            <input type="month" method="get" value="2020-11">
-            <button onclick="toggleHeader(event)"><i class="fas fa-bars"></i></button>
+            <!-- TODO: Month selector -->
+            <button id="month">Novembre</button>
+            <?php require "req/header-toggle.php"?>
         </h3>
         <div id="container">
             <table>
@@ -57,5 +58,5 @@ require "header.php";
 </main>
 
 <?php
-require "footer.php";
+require "req/footer.php";
 ?>

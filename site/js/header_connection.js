@@ -50,6 +50,7 @@ const DOCKED_ATTR = "isDocked";
 backdrop = document.getElementById("dark-overlay");
 signup = document.getElementById("signup");
 login = document.getElementById("login");
+toggleIcon = document.getElementById("header-toggle");
 
 header = document.querySelector("header");
 main = document.querySelector("main");
@@ -77,11 +78,13 @@ function toggleHeader(e) {
 function openHeader() {
   header.removeAttribute(DOCKED_ATTR);
   main.setAttribute(DOCKED_ATTR, "");
+  toggleIcon.setAttribute(DOCKED_ATTR, "");
 }
 
 function closeHeader() {
   header.setAttribute(DOCKED_ATTR, "");
   main.removeAttribute(DOCKED_ATTR);
+  toggleIcon.removeAttribute(DOCKED_ATTR);
 }
 
 function openLogin() {
