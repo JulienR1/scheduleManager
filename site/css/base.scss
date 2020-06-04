@@ -9,7 +9,8 @@ html {
 }
 
 body {
-  min-height: calc(100% - #{$topMargin});
+  //min-height: 100%; //calc(100% - #{$topMargin});
+  height: 100%;
 }
 
 body {

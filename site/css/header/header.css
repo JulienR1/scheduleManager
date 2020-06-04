@@ -150,7 +150,7 @@ header nav ul li a:hover {
             transition-duration: 0s;
   }
   header[isdocked] {
-    right: 0;
+    right: 5%;
   }
   main {
     -webkit-transition-duration: 0s;
