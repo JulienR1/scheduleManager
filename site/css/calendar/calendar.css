@@ -21,6 +21,7 @@
 main {
   display: -ms-grid;
   display: grid;
+  position: relative;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   -ms-grid-rows: auto calc(10vw + 5%);

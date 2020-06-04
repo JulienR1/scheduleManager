@@ -20,6 +20,7 @@ $_SESSION["currentPage"] = $_SERVER["PHP_SELF"];
     <?php
 if (strpos($_SESSION["currentPage"], "calendar") !== false) {
     echo '<link rel="stylesheet" href="css/calendar/calendar.css">';
+    echo '<link rel="stylesheet" href="css/calendar/calendar-details.css">';
 }
 ?>
 
@@ -137,5 +138,5 @@ function getDataFromURL($tag)
     </section>
 
     <?php
-echo '<div ' . (((isset($_GET["login"]) && $_GET["login"] == "f") || (isset($_GET["signup"])) && $_GET["signup"] == "f") ? 'active' : '') . ' id="dark-overlay"></div>';
+echo '<div ' . (((isset($_GET["login"]) && $_GET["login"] == "f") || (isset($_GET["signup"])) && $_GET["signup"] == "f") ? 'active' : '') . ' id="dark-overlay" active></div>';
 ?>

@@ -142,8 +142,177 @@ require "req/header.php";
                         <h4>1</h4>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <h4>26</h4>
+                    </td>
+                    <td>
+                        <h4>27</h4>
+                    </td>
+                    <td>
+                        <h4>28</h4>
+                    </td>
+                    <td>
+                        <h4>29</h4>
+                    </td>
+                    <td>
+                        <h4>30</h4>
+                    </td>
+                    <td>
+                        <h4>31</h4>
+                    </td>
+                    <td unactive>
+                        <h4>1</h4>
+                    </td>
+                </tr>
             </tbody>
         </table>
+    </section>
+
+    <section id="calendar-details">
+        <h4>8</h4>
+        <div id="container">
+            <div id="scroller">
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <h5>8:00 - 12:00</h5>
+                    <h6>Asperges <span>(20 boîtes)</span></h6>
+                    <ul>
+                        <li><b>Jerome</b></li>
+                        <li>Marc-Andre</li>
+                        <li>Samaël</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <button>Ok</button>
+            </div>
+        </div>
     </section>
 
     <button id="right"><i class="fas fa-caret-right"></i></button>
