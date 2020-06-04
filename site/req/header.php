@@ -138,5 +138,5 @@ function getDataFromURL($tag)
     </section>
 
     <?php
-echo '<div ' . (((isset($_GET["login"]) && $_GET["login"] == "f") || (isset($_GET["signup"])) && $_GET["signup"] == "f") ? 'active' : '') . ' id="dark-overlay" active></div>';
+echo '<div ' . (((isset($_GET["login"]) && $_GET["login"] == "f") || (isset($_GET["signup"])) && $_GET["signup"] == "f") ? 'active' : '') . ' id="dark-overlay"></div>';
 ?>

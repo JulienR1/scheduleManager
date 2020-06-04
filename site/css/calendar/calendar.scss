@@ -216,6 +216,7 @@ main #calendar table tbody tr td .wrapper p {
 
   main #calendar table tbody tr td .wrapper {
     min-width: 100%;
+    font-size: clamp(6px, 0.9vw, 14px);
   }
 
   main #calendar table tbody tr td .wrapper p {
