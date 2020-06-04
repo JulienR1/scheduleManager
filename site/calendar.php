@@ -23,10 +23,10 @@ require "req/header.php";
                     <th>S</th>
                 </tr>
                 <tr>
-                    <td>
+                    <td unactive>
                         <h4>30</h4>
                     </td>
-                    <td>
+                    <td unactive>
                         <h4>31</h4>
                     </td>
                     <td>
@@ -138,7 +138,7 @@ require "req/header.php";
                     <td>
                         <h4>31</h4>
                     </td>
-                    <td>
+                    <td unactive>
                         <h4>1</h4>
                     </td>
                 </tr>

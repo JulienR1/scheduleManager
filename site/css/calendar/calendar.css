@@ -61,8 +61,6 @@ main {
 
 #left i {
   padding-right: 5px;
-  -webkit-animation: slideLeft 1s ease;
-          animation: slideLeft 1s ease;
 }
 
 #right i {
@@ -163,6 +161,10 @@ main #calendar table tbody tr td {
   position: relative;
 }
 
+main #calendar table tbody tr td[unactive] {
+  opacity: 0.6;
+}
+
 main #calendar table tbody tr td h4 {
   position: absolute;
   left: 0;
@@ -184,5 +186,61 @@ main #calendar table tbody tr td .wrapper p {
   padding: 2px 3px;
   padding-bottom: 0;
   background-color: red;
+}
+
+@media only screen and (min-width: 700px) {
+  main {
+    display: block;
+    position: relative;
+    min-height: unset;
+    height: calc(95% - 80px);
+  }
+  #left,
+  #right {
+    position: absolute;
+    margin: 0;
+    top: 55%;
+  }
+  #left {
+    left: 5%;
+  }
+  #right {
+    right: 5%;
+  }
+  main #calendar {
+    margin: 0 auto;
+    width: 75%;
+    height: 90%;
+    position: relative;
+    top: 20%;
+  }
+  main #calendar h3 {
+    position: absolute;
+    margin: 0 auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    left: 50%;
+    width: 20%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    padding: 4px 8%;
+  }
+  main #calendar h3 #month {
+    font-size: clamp(16px, 2vw, 22px);
+    margin: 0 auto;
+  }
+  main #calendar table tbody {
+    height: 95%;
+    margin: 0;
+    padding: 2.5% 5%;
+  }
+  main #calendar table tbody tr td .wrapper {
+    min-width: 100%;
+  }
+  main #calendar table tbody tr td .wrapper p {
+    min-width: 100%;
+  }
 }
 /*# sourceMappingURL=calendar.css.map */
