@@ -39,8 +39,8 @@
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: visibility 0.5s ease, opacity 0.5s ease;
-  transition: visibility 0.5s ease, opacity 0.5s ease;
+  -webkit-transition: visibility 0.2s ease, opacity 0.2s ease;
+  transition: visibility 0.2s ease, opacity 0.2s ease;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }

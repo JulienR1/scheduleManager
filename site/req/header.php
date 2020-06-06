@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $_SESSION["currentPage"] = $_SERVER["PHP_SELF"];
 ?>
 
@@ -102,7 +104,7 @@ function getDataFromURL($tag)
             <?php if (getDataFromURL("err") == "invalidpassword") {
     echo '<p class="error-msg">Le mot de passe est erroné.</p>';}?>
 
-            <button type="submit" name="login-submit">Ok</button>
+            <button type="submit" name="login-submit">Connexion</button>
         </form>
 
         <button class="navButton" onclick="openSignup()">Créer un compte</button>

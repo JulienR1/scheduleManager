@@ -51,6 +51,7 @@ backdrop = document.getElementById("dark-overlay");
 signup = document.getElementById("signup");
 login = document.getElementById("login");
 toggleIcon = document.getElementById("header-toggle");
+dateInfo = document.getElementById("calendar-details");
 
 header = document.querySelector("header");
 main = document.querySelector("main");
@@ -113,6 +114,7 @@ function closeWindow() {
   backdrop.removeAttribute(ACTIVE_ATTR);
   login.removeAttribute(ACTIVE_ATTR);
   signup.removeAttribute(ACTIVE_ATTR);
+  dateInfo.removeAttribute(ACTIVE_ATTR);
   unlockScroll();
   closeHeader();
   window.location.search = "";

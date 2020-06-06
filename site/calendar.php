@@ -1,16 +1,28 @@
 <?php
+
+if (!isset($_GET["y"]) && !isset($_GET["m"])) {
+    header("Location: calendar.php?y=" . date("y") . "&m=" . date("m"));
+    exit();
+}
 require "req/header.php";
 ?>
 
 <main>
-    <button id="left"><i class="fas fa-caret-left"></i></button>
+    <form action="php/monthHandler.php" method="post">
+        <button id="left" name="previous-month" type="submit"><i class="fas fa-caret-left"></i></button>
+        <?php echo '<input name="month" value="' . $_GET["m"] . '" style="display:none;" />';
+echo '<input name="year" value="' . $_GET["y"] . '" style="display:none;" />'; ?>
+    </form>
 
     <section id="calendar">
         <h3>
             <!-- TODO: Month selector -->
-            <button id="month">Novembre</button>
+            <form>
+                <button id="month" type="submit">Novembre 2020</button>
+            </form>
             <?php require "req/header-toggle.php"?>
         </h3>
+        <?php require "req/monthGenerator.php";?>
         <table>
             <tbody>
                 <tr>
@@ -57,7 +69,7 @@ require "req/header.php";
                     <td>
                         <h4>7</h4>
                     </td>
-                    <td>
+                    <td onclick="openDateInfos(11, 8)">
                         <h4>8</h4>
                     </td>
                     <td>
@@ -167,6 +179,7 @@ require "req/header.php";
                 </tr>
             </tbody>
         </table>
+
     </section>
 
     <section id="calendar-details">
@@ -184,12 +197,16 @@ require "req/header.php";
                 </div>
             </div>
             <div>
-                <button>Ok</button>
+                <button onclick="closeWindow()">Ok</button>
             </div>
         </div>
     </section>
 
-    <button id="right"><i class="fas fa-caret-right"></i></button>
+    <form action="php/monthHandler.php" method="post">
+        <button id="right" name="next-month" type="submit"><i class="fas fa-caret-right"></i></button>
+        <?php echo '<input name="month" value="' . $_GET["m"] . '" style="display:none;" />';
+echo '<input name="year" value="' . $_GET["y"] . '" style="display:none;" />'; ?>
+    </form>
 </main>
 
 <?php
