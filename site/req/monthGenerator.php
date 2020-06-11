@@ -31,30 +31,40 @@ for ($i = $index; $i < 42; $i++) {
 
 require "php/dbHandler.php";
 
-$queryAllTasks = "SELECT dailyTask.*, targetDate
-                FROM dailyTask, daytodailytask
-                WHERE id=dailyTaskID AND targetDate BETWEEN ? AND ?
-                ORDER BY targetDate, targetStartTime";
-$taskTable = executeSQL($queryAllTasks, "ss", $calendarData[0], $calendarData[sizeof($calendarData) - 1]);
+$queryTasks = "SELECT A.*, firstname, lastname
+            FROM users, (SELECT dailytask.id, taskName, targetStartTime, targetEndTime, targetQuantity, targetDate
+                        FROM dailytask, tasks
+                        WHERE tasks.id = taskId AND targetDate BETWEEN ? AND ?
+                        ORDER BY targetDate ASC, targetStartTime ASC) AS A
+            LEFT JOIN dailytasktousers ON dailytasktousers.dailyTaskId = A.id
+            WHERE users.id = dailytasktousers.userId";
 
-// Assign tasks to calendar in array structure
+$taskTable = executeSQL($queryTasks, "ss", $calendarData[0], $calendarData[sizeof($calendarData) - 1]);
 
-$task = mysqli_fetch_assoc($taskTable);
+$currentTask = mysqli_fetch_assoc($taskTable);
 for ($i = 0; $i < sizeof($calendarData); $i++) {
-    $currentDate = $calendarData[$i];
-    $calendarData[$i] = array("date" => $currentDate, "tasks" => null);
-    if ($task != null) {
-        while (strtotime($task["targetDate"]) == strtotime($currentDate)) {
-            if ($calendarData[$i]["tasks"] == null) {
-                $calendarData[$i]["tasks"] = array($task);
-            } else {
-                array_push($calendarData[$i]["tasks"], $task);
-            }
-            $task = mysqli_fetch_assoc($taskTable);
-            if ($task == null) {
-                break;
-            }
+    $calendarData[$i] = array("date" => $calendarData[$i], "tasks" => array());
+
+    while ($currentTask != null && strtotime($currentTask["targetDate"]) == strtotime($calendarData[$i]["date"])) {
+        $currentTaskId = $currentTask["id"];
+        $users = array();
+        $tasks = array();
+
+        while ($currentTask != null && $currentTaskId == $currentTask["id"]) {
+            array_push($users, array($currentTask["firstname"], $currentTask["lastname"]));
+
+            $tasks = array(
+                "id" => $currentTask["id"],
+                "name" => $currentTask["taskName"],
+                "startTime" => $currentTask["targetStartTime"],
+                "endTime" => $currentTask["targetEndTime"],
+                "quantity" => $currentTask["targetQuantity"],
+                "users" => $users,
+            );
+
+            $currentTask = mysqli_fetch_assoc($taskTable);
         }
+        array_push($calendarData[$i]["tasks"], $tasks);
     }
 }
 
@@ -65,14 +75,14 @@ echo '<tr><th>D</th><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th>
 for ($i = 0; $i < 6; $i++) {
     echo '<tr>';
     for ($j = 0; $j < 7; $j++) {
-        $day = $calendarData[$i * 7 + $j];
-        $isActive = date("m", strtotime($day["date"])) == $month;
-        echo '<td ' . (!$isActive ? "unactive" : "") . ' onclick="openDateInfos(\'' . $day["date"] . '\')">';
-        echo '<h4>' . date("j", strtotime($day["date"])) . '</h4>';
-        if ($day['tasks'] != null) {
+        $index = 6 * $i + $j;
+        $isActive = date("m", strtotime($calendarData[$index]["date"])) == $month;
+        echo '<td' . (!$isActive ? ' unactive' : '') . ' onclick="openDateInfos(\'' . $calendarData[$index]["date"] . '\')"' . '>';
+        echo '<h4>' . date("j", strtotime($calendarData[$index]["date"])) . '</h4>';
+        if ($calendarData[$index]["tasks"] != null) {
             echo '<div class="wrapper">';
-            foreach ($day["tasks"] as $task) {
-                echo '<p>' . $task["taskName"] . '</p>';
+            foreach ($calendarData[$index]['tasks'] as $task) {
+                echo '<p>' . $task['name'] . '</p>';
             }
             echo '</div>';
         }
