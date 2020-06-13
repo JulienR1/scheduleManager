@@ -2,8 +2,8 @@
 
 // General variables for generation
 
-$month = max(1, min($_GET["m"], 12));
-$year = max(18, min($_GET["y"], 22));
+$month = max(1, min($_SESSION["month"], 12));
+$year = max(18, min($_SESSION["year"], 22));
 
 $previousMonth = (($month + 10) % 12 + 1);
 $nextMonth = (($month + 12) % 12 + 1);
@@ -31,15 +31,27 @@ for ($i = $index; $i < 42; $i++) {
 
 require "php/dbHandler.php";
 
+$taskTable = "";
+$showEveryone = isset($_SESSION["userID"]) && isset($_GET["filter"]) && $_GET["filter"] == "all";
+
 $queryTasks = "SELECT A.*, firstname, lastname
             FROM users, (SELECT dailytask.id, taskName, targetStartTime, targetEndTime, targetQuantity, targetDate
                         FROM dailytask, tasks
-                        WHERE tasks.id = taskId AND targetDate BETWEEN ? AND ?
-                        ORDER BY targetDate ASC, targetStartTime ASC) AS A
+                        WHERE tasks.id = taskId AND targetDate BETWEEN ? AND ? " .
+    ($showEveryone ? "" :
+    " AND taskId IN (SELECT dailyTaskId FROM dailytasktousers WHERE userId=?)
+                        AND targetDate IN (SELECT targetDate FROM dailytasktousers, dailytask WHERE dailytask.id = dailyTaskId AND userId=?) ")
+
+    . "ORDER BY targetDate ASC, targetStartTime ASC) AS A
             LEFT JOIN dailytasktousers ON dailytasktousers.dailyTaskId = A.id
             WHERE users.id = dailytasktousers.userId";
 
-$taskTable = executeSQL($queryTasks, "ss", $calendarData[0], $calendarData[sizeof($calendarData) - 1]);
+if ($showEveryone) {
+    $taskTable = executeSQL($queryTasks, "ss", $calendarData[0], $calendarData[sizeof($calendarData) - 1]);
+} else {
+    $userID = isset($_SESSION["userID"]) ? $_SESSION["userID"] : "";
+    $taskTable = executeSQL($queryTasks, "ssii", $calendarData[0], $calendarData[sizeof($calendarData) - 1], $userID, $userID);
+}
 
 $currentTask = mysqli_fetch_assoc($taskTable);
 for ($i = 0; $i < sizeof($calendarData); $i++) {
@@ -79,12 +91,14 @@ for ($i = 0; $i < 6; $i++) {
         $isActive = date("m", strtotime($calendarData[$index]["date"])) == $month;
         echo '<td' . (!$isActive ? ' unactive' : '') . ' onclick="openDateInfos(\'' . $calendarData[$index]["date"] . '\')"' . '>';
         echo '<h4>' . date("j", strtotime($calendarData[$index]["date"])) . '</h4>';
-        if ($calendarData[$index]["tasks"] != null) {
-            echo '<div class="wrapper">';
-            foreach ($calendarData[$index]['tasks'] as $task) {
-                echo '<p>' . $task['name'] . '</p>';
+        if (isset($_SESSION["userID"])) {
+            if ($calendarData[$index]["tasks"] != null) {
+                echo '<div class="wrapper">';
+                foreach ($calendarData[$index]['tasks'] as $task) {
+                    echo '<p>' . $task['name'] . '</p>';
+                }
+                echo '</div>';
             }
-            echo '</div>';
         }
         echo '</td>';
     }

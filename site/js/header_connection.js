@@ -85,7 +85,7 @@ function openHeader() {
 function closeHeader() {
   header.setAttribute(DOCKED_ATTR, "");
   main.removeAttribute(DOCKED_ATTR);
-  toggleIcon.removeAttribute(DOCKED_ATTR);
+  if (toggleIcon != undefined) toggleIcon.removeAttribute(DOCKED_ATTR);
 }
 
 function openLogin() {
@@ -114,10 +114,10 @@ function closeWindow() {
   backdrop.removeAttribute(ACTIVE_ATTR);
   login.removeAttribute(ACTIVE_ATTR);
   signup.removeAttribute(ACTIVE_ATTR);
-  dateInfo.removeAttribute(ACTIVE_ATTR);
+  if (dateInfo != undefined) dateInfo.removeAttribute(ACTIVE_ATTR);
   unlockScroll();
   closeHeader();
-  window.location.search = "";
+  //window.location.search = "";
 }
 
 function unlockScroll() {

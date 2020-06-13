@@ -20,9 +20,12 @@ $_SESSION["currentPage"] = $_SERVER["PHP_SELF"];
     <link rel="stylesheet" href="css/header/connection.css">
 
     <?php
-if (strpos($_SESSION["currentPage"], "calendar") !== false) {
+if (strpos($_SESSION["currentPage"], "calendar.php") !== false) {
     echo '<link rel="stylesheet" href="css/calendar/calendar.css">';
     echo '<link rel="stylesheet" href="css/calendar/calendar-details.css">';
+}
+if (strpos($_SESSION["currentPage"], "calendar-setup.php") !== false) {
+    echo '<link rel="stylesheet" href="css/calendar-setup/calendar-setup.css">';
 }
 ?>
 
@@ -73,7 +76,19 @@ if (!isset($_SESSION["userID"])) {
 
         <nav>
             <ul>
-                <li><a href="calendar.php">Horaire</a></li>
+                <li>
+                    <a href="calendar.php">Horaire</a>
+                    <?php
+if (isset($_SESSION["userID"])) {
+    echo '
+                    <ul>
+                        <li><a href="calendar.php">Seulement moi</a></li>
+                        <li><a href="calendar.php?filter=all">Tout le monde</a></li>' .
+        (($_SESSION["isAdmin"]) ? '<li><a href="calendar-setup.php">Faire l\'horaire</a></li>' : "")
+        . '</ul>';
+}
+?>
+                </li>
                 <li><a href="#">Mes dispos</a></li>
                 <li><a href="#">Mes heures</a></li>
             </ul>

@@ -36,6 +36,13 @@ body[noscroll] {
   visibility: visible;
 }
 
+.shadow-bg {
+  -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  border-radius: 30px;
+}
+
 #header-toggle {
   background: none;
   border: none;
