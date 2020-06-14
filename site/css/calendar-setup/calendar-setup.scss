@@ -166,3 +166,18 @@ main #day-container {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 3px 0;
 }
+
+@media only screen and (min-width: 700px) {
+  main #calendar-setup {
+    padding-top: 120px;
+  }
+
+  main h3 {
+    padding: 2.5% 0;
+    width: 60%;
+  }
+
+  main h3 .container label {
+    font-size: clamp(16px, 1.5vw, 25px);
+  }
+}
