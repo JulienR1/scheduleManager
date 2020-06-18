@@ -39,7 +39,8 @@ body[noscroll] {
   visibility: visible;
 }
 
-.shadow-bg {
+.shadow-bg,
+.shadow-bg-cell {
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
   background-color: #fff;
   border-radius: 30px;
@@ -78,5 +79,16 @@ body[noscroll] {
 @media only screen and (min-width: 700px) {
   #header-toggle {
     display: none;
+  }
+
+  .shadow-bg-cell {
+    background-color: none;
+    box-shadow: none;
+  }
+
+  .shadow-bg-desktop {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    border-radius: 30px;
   }
 }

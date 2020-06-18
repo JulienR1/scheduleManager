@@ -58,6 +58,9 @@ main h3 #weekday-selection input {
 
 main #day-container {
   width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0 auto;
   margin-top: 5%;
 }
@@ -85,6 +88,8 @@ main #day-container {
 }
 
 .day .wrapper {
+  position: relative;
+  height: 80%;
   padding: 5%;
   padding-top: 10%;
 }
@@ -126,7 +131,8 @@ main #day-container {
 
 .day .title select,
 .day .title #qty input,
-.day .title #qty p {
+.day .title #qty p,
+.day .title #qty span {
   font-family: "roboto-light", Arial, Helvetica, sans-serif;
   font-size: clamp(10px, 3vw, 26px);
 }
@@ -163,6 +169,7 @@ main #day-container {
 .day .task ul li select {
   width: 100%;
   border: none;
+  font-family: "roboto-light", Arial, Helvetica, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 3px 0;
 }
@@ -173,11 +180,126 @@ main #day-container {
   }
 
   main h3 {
-    padding: 2.5% 0;
+    margin: 2.5% auto;
+    padding: 0;
     width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  main h3 .container {
+    flex: 1;
+    justify-content: center;
   }
 
   main h3 .container label {
-    font-size: clamp(16px, 1.5vw, 25px);
+    font-size: clamp(16px, 1.25vw, 25px);
+  }
+
+  main h3 #month-selection,
+  main h3 #weekday-selection {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  main h3 #month-selection {
+    text-align: center;
+  }
+
+  main h3 #weekday-selection {
+    width: 90%;
+  }
+
+  main h3 select,
+  main h3 #weekday-selection input {
+    font-size: clamp(14px, 1vw, 22px);
+  }
+
+  main h3 #weekday-selection input {
+    width: 25%;
+  }
+
+  main h3 select {
+    min-width: 20%;
+  }
+
+  main #day-container {
+    width: 75%;
+  }
+
+  main .day {
+    height: 400px;
+    width: 40%;
+    margin-bottom: 80px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  main .day h4 {
+    padding: 2% 10%;
+    font-size: clamp(12px, 1.4vw, 25px);
+    min-width: 50%;
+  }
+
+  main .day .wrapper {
+    overflow-y: scroll;
+    margin: 7%;
+    margin-top: 13%;
+    margin-right: 5%;
+    padding: 0;
+    top: 4%;
+  }
+
+  .day .wrapper .task {
+    padding-left: 5%;
+    margin-bottom: 10%;
+  }
+
+  .day .wrapper .task .time {
+    width: 60%;
+    position: relative;
+  }
+
+  .day .title #qty input {
+    width: 45%;
+  }
+
+  .day .wrapper .task .time input,
+  .day .wrapper .task .time p {
+    font-size: clamp(10px, 1vw, 26px);
+    max-width: 40%;
+  }
+
+  .day .title select,
+  .day .title #qty input,
+  .day .title #qty p,
+  .day .title #qty span {
+    font-size: clamp(10px, 0.8vw, 22px);
+  }
+
+  .day .title select {
+    width: 55%;
+  }
+
+  .day .task ul {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  main h3 {
+    width: 40%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  main .day {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1220px) {
+  main .day {
+    width: 22%;
   }
 }
