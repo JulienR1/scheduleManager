@@ -36,14 +36,12 @@ for ($i = 0; $i < sizeof($months); $i++) {
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Dimanche</h4>
                 <div class="wrapper shadow-bg-cell">
                     <div class="task">
-                        <button onclick="removeTask()" type="button" class="cancel"><i
+                        <button onclick="removeTask(this)" type="button" class="cancel"><i
                                 class="fas fa-times"></i></button>
                         <div class="time">
-                            <input type="text" class="timeInput startTime" placeholder="0:00"
-                                onfocusout="FormatTime(this)">
+                            <input type="text" class="timeInput startTime" placeholder="0:00">
                             <p>-</p>
-                            <input type="text" class="timeInput endTime" placeholder="0:00"
-                                onfocusout="FormatTime(this)">
+                            <input type="text" class="timeInput endTime" placeholder="0:00">
                         </div>
                         <div class="title">
                             <select name="taskName" id="taskName">
@@ -57,10 +55,12 @@ for ($i = 0; $i < sizeof($months); $i++) {
                             </div>
                         </div>
                         <ul>
-                            <li><select name="user1" class="userSelection">
+                            <li>
+                                <select name="user1" class="userSelection">
+                                    <option selected="selected">Sélectionner..</option>
                                     <option value="user1">Filip</option>
-                                </select></li>
-                            <li><select name="user1" class="userSelection"></select></li>
+                                </select>
+                            </li>
                         </ul>
                     </div>
                 </div>

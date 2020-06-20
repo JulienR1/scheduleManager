@@ -24,5 +24,6 @@ function FormatTime(element) {
 function FormatInteger(element) {
   var integer = parseInt(element.value);
   if (isNaN(integer)) integer = 0;
+  if (integer < 0) integer = Math.abs(integer);
   element.value = integer;
 }

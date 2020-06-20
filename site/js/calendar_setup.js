@@ -38,3 +38,5 @@ function toggleDayView(btn) {
 function SelectAll(element) {
   element.setSelectionRange(0, element.value.length);
 }
+
+function removeTask(task) {}
