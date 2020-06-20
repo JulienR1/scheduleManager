@@ -32,15 +32,18 @@ for ($i = 0; $i < sizeof($months); $i++) {
         </h3>
 
         <div id="day-container">
-            <div class="day shadow-bg">
-                <h4 onclick="toggleDayView()" class="shadow-bg">Dimanche</h4>
-                <div class="wrapper">
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Dimanche</h4>
+                <div class="wrapper shadow-bg-cell">
                     <div class="task">
-                        <button onclick="removeTask()" type="button" id="cancel"><i class="fas fa-times"></i></button>
+                        <button onclick="removeTask()" type="button" class="cancel"><i
+                                class="fas fa-times"></i></button>
                         <div class="time">
-                            <input type="text" class="startTime" placeholder="0:00">
+                            <input type="text" class="timeInput startTime" placeholder="0:00"
+                                onfocusout="FormatTime(this)">
                             <p>-</p>
-                            <input type="text" class="endTime" placeholder="0:00">
+                            <input type="text" class="timeInput endTime" placeholder="0:00"
+                                onfocusout="FormatTime(this)">
                         </div>
                         <div class="title">
                             <select name="taskName" id="taskName">
@@ -63,11 +66,12 @@ for ($i = 0; $i < sizeof($months); $i++) {
                 </div>
             </div>
 
-            <div class="day shadow-bg">
-                <h4 onclick="toggleDayView()" class="shadow-bg">Lundi</h4>
-                <div class="wrapper">
+            <div class="day" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Lundi</h4>
+                <div class="wrapper shadow-bg">
                     <div class="task">
-                        <button onclick="removeTask()" type="button" id="cancel"><i class="fas fa-times"></i></button>
+                        <button onclick="removeTask()" type="button" class="cancel"><i
+                                class="fas fa-times"></i></button>
                         <div class="time">
                             <input type="text" class="startTime" placeholder="0:00">
                             <p>-</p>
