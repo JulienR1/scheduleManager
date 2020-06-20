@@ -20,3 +20,9 @@ function FormatTime(element) {
 
   element.value = hours + ":" + minutes;
 }
+
+function FormatInteger(element) {
+  var integer = parseInt(element.value);
+  if (isNaN(integer)) integer = 0;
+  element.value = integer;
+}
