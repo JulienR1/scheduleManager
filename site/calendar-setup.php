@@ -39,9 +39,9 @@ for ($i = 0; $i < sizeof($months); $i++) {
                         <button onclick="removeTask(this)" type="button" class="cancel"><i
                                 class="fas fa-times"></i></button>
                         <div class="time">
-                            <input type="text" class="timeInput startTime" placeholder="0:00">
+                            <input type="text" class="timeInput startTime" placeholder="Début">
                             <p>-</p>
-                            <input type="text" class="timeInput endTime" placeholder="0:00">
+                            <input type="text" class="timeInput endTime" placeholder="Fin">
                         </div>
                         <div class="title">
                             <select name="taskName" id="taskName">
@@ -67,35 +67,7 @@ for ($i = 0; $i < sizeof($months); $i++) {
             </div>
 
             <div class="day" closed>
-                <h4 onclick="toggleDayView(this)" class="shadow-bg">Lundi</h4>
-                <div class="wrapper shadow-bg">
-                    <div class="task">
-                        <button onclick="removeTask()" type="button" class="cancel"><i
-                                class="fas fa-times"></i></button>
-                        <div class="time">
-                            <input type="text" class="startTime" placeholder="0:00">
-                            <p>-</p>
-                            <input type="text" class="endTime" placeholder="0:00">
-                        </div>
-                        <div class="title">
-                            <select name="taskName" id="taskName">
-                                <option value="Asperges">Asperges</option>
-                                <option value="Fleur de fraises">Fleurs de fraises</option>
-                            </select>
-                            <div id="qty">
-                                <span>(</span>
-                                <input type="text" placeholder="Qté">
-                                <span>)</span>
-                            </div>
-                        </div>
-                        <ul>
-                            <li><select name="user1" class="userSelection">
-                                    <option value="user1">Filip</option>
-                                </select></li>
-                            <li><select name="user1" class="userSelection"></select></li>
-                        </ul>
-                    </div>
-                </div>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Lundi</h4>                
             </div>
 
             <div class="day shadow-bg" closed>

@@ -25,7 +25,7 @@
 #signup {
   position: fixed;
   width: 250px;
-  z-index: 2;
+  z-index: 4;
   border-radius: 20px;
   background-color: #fff;
   top: 75px;

@@ -22,6 +22,14 @@ function disconnect()
     mysqli_close($conn);
 }
 
+function executeSafeSQL($query){
+    global $conn;
+    connect();
+    $data = mysqli_query($conn, $query);
+    disconnect();
+    return $data;
+}
+
 function executeSQL($query, $types, ...$params)
 {
     global $conn;

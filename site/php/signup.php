@@ -48,6 +48,7 @@ if (isset($_POST["signup-submit"])) {
             $_SESSION["userID"] = mysqli_fetch_assoc(executeSQL("SELECT id FROM users WHERE email=?", "s", $email))["id"];
             $_SESSION["userFirstname"] = $firstname;
             $_SESSION["userLastname"] = $lastname;
+            $_SESSION["isAdmin"] = FALSE;
             $_SESSION["userImg"] = null;
 
             header("Location: " . $pageToLoad . "?signup=s");
