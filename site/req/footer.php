@@ -7,7 +7,8 @@ if (strpos($_SESSION["currentPage"], "calendar.php") !== false) {
     }
     echo '<script src="js/calendar_infos.js"></script>';
 } else if (strpos($_SESSION["currentPage"], "calendar-setup.php") != false) {
-    echo '<script src="js/calendar_setup.js"></script>';
+    echo '<script src="js/calendar_setup/calendar_setup.js"></script>';
+    echo '<script src="js/calendar_setup/calendar_setup_events.js"></script>';
     echo '<script src="js/format.js"></script>';
     require "req/validUsers.php";
 }

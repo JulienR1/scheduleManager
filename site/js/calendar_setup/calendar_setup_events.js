@@ -36,7 +36,7 @@ function addEventToUserSelects() {
   var selects = document.querySelectorAll(".userSelection");
   selects.forEach((element) => {
     element.addEventListener("click", (e) => UpdateUserSelectContent(element));
-  })
+  });
 }
 
 function toggleDayView(btn) {
@@ -48,14 +48,15 @@ function SelectAll(element) {
 }
 
 function UpdateUserSelectContent(select) {
-  // On skip la premiere valeur parce que celle-ci sera toujours la meme:
-  // "Selectionner ..."
-  while (select.options.length > 1) {
-    select.options[1] = null;
+  /*while (select.options.length > 0) {
+    select.options[0] = null;
   }
-  validUsers.foreach((user) => {
-    // add tous les users dans le select (var = validUsers)
-  })
+  select.add(new Option("Sélectionner..", "-1", true));
+  validUsers.forEach((user) => {
+    select.add(
+      new Option(user["firstname"] + " " + user["lastname"], user["id"])
+    );
+  });*/
 }
 
-function removeTask(task) { }
+function removeTask(task) {}
