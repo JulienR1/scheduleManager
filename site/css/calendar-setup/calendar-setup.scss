@@ -26,6 +26,11 @@ main h3 .container {
   padding-right: 10px;
 }
 
+main h3 #weekday-container {
+  display: inline-flex;
+  width: fit-content;
+}
+
 main h3 #month-selection {
   flex: 1;
   padding: 2.5% 5%;
@@ -54,6 +59,23 @@ main h3 #weekday-selection input {
   font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
   font-size: clamp(10px, 3.25vw, 26px);
   margin-left: 5px;
+}
+
+main h3 button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: clamp(15px, 1vw, 25px);
+  cursor: pointer;
+  padding: 8px;
+}
+
+main h3 button i {
+  transition: transform 0.1s ease-in-out;
+}
+
+main h3 button:hover i {
+  transform: scale(1.15);
 }
 
 main #day-container {
