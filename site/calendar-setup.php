@@ -15,7 +15,7 @@ if (isset($_GET["d"]) && !$_GET["d"] == "") {
 
 <main>
     <div id="calendar-setup">
-        <form action="php/dateSelector.php" method="get">
+        <form action="php/dateSelector.php" method="get" autocomplete="off">
             <h3 class="shadow-bg-desktop">
                 <div class="container shadow-bg-cell">
                     <div id="month-selection">
@@ -47,7 +47,8 @@ echo '<input type="text" value="' . date("j", strtotime($date)) . '" id="weekday
 
         <div id="day-container">
             <?php require "req/dayGenerator.php";?>
-            <div class="task">
+            <!--<div class="wrapper shadow-bg-cell">
+              <div class="task">
                 <button onclick="removeTask(this)" type="button" class="cancel"><i class="fas fa-times"></i></button>
                 <div class="time">
                     <input type="text" class="timeInput startTime" placeholder="Début">
@@ -74,6 +75,7 @@ echo '<input type="text" value="' . date("j", strtotime($date)) . '" id="weekday
                     </li>
                 </ul>
             </div>
+            </div>-->
         </div>
     </div>
 </main>
