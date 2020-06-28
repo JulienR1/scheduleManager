@@ -11,6 +11,7 @@ if (isset($_GET["d"]) && !$_GET["d"] == "") {
 } else {
     header("Location: calendar-setup.php?d=" . $date);
 }
+
 ?>
 
 <main>
@@ -46,7 +47,27 @@ echo '<input type="text" value="' . date("j", strtotime($date)) . '" id="weekday
         </form>
 
         <div id="day-container">
-            <?php require "req/dayGenerator.php";?>
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Dimanche</h4>
+            </div>
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Lundi</h4>
+            </div>
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Mardi</h4>
+            </div>
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Mercredi</h4>
+            </div>
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Jeudi</h4>
+            </div>
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Vendredi</h4>
+            </div>
+            <div class="day shadow-bg-desktop" closed>
+                <h4 onclick="toggleDayView(this)" class="shadow-bg">Samedi</h4>
+            </div>
             <!--<div class="wrapper shadow-bg-cell">
               <div class="task">
                 <button onclick="removeTask(this)" type="button" class="cancel"><i class="fas fa-times"></i></button>
