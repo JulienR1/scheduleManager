@@ -20,31 +20,32 @@ $taskData = mysqli_fetch_assoc($weekTaskTable);
 
 $weekTasks = array();
 for ($i = 0; $i < 7; $i++) {
-    array_push($weekTasks, array());
+    $dayTasks = array();
+
     while ($taskData != null && date("w", strtotime($taskData["targetDate"])) == $i) {
-        if (sizeof($weekTasks[$i]) == 0) {
-            array_push($weekTasks[$i], array());
-        }
-        for ($j = 0; $j < sizeof($weekTasks[$i]); $j++) {
-            if (sizeof($weekTasks[$i][$j]) == 0 || (isset($weekTasks[$i][$j]["taskId"]) && $weekTasks[$i][$j]["taskId"] != $taskData["taskId"])) {
-                $currentTaskData = array(
-                    "taskId" => $taskData["taskId"],
-                    "startTime" => $taskData["targetStartTime"],
-                    "endTime" => $taskData["targetEndTime"],
-                    "taskName" => $taskData["taskName"],
-                    "users" => array("firstname" => $taskData["firstname"], "lastname" => $taskData["lastname"]),
-                );
-                if (sizeof($weekTasks[$i][$j]) == 0) {
-                    $weekTasks[$i][$j] = $currentTaskData;
-                } else {
-                    array_push($weekTasks[$i][$j], $currentTaskData);
-                }
-            } else {
-                array_push($weekTasks[$i][sizeof($weekTasks[$i]) - 1], array("firstname" => $taskData["firstname"], "lastname" => $taskData["lastname"]));
+        $userInfo = array("firstname" => $taskData["firstname"], "lastname" => $taskData["lastname"]);
+
+        $taskInstanceCreated = false;
+        for ($j = 0; $j < sizeof($dayTasks); $j++) {
+            if ($dayTasks[$j]["taskId"] == $taskData["taskId"]) {
+                $taskInstanceCreated = true;
+                array_push($dayTasks[$j]["users"], $userInfo);
             }
+        }
+        if (!$taskInstanceCreated) {
+            array_push($dayTasks, array(
+                "taskId" => $taskData["taskId"],
+                "taskName" => $taskData["taskName"],
+                "startTime" => $taskData["targetStartTime"],
+                "endTime" => $taskData["targetEndTime"],
+                "targetDate" => $taskData["targetDate"],
+                "targetQuantity" => $taskData["targetQuantity"],
+                "users" => array($userInfo),
+            ));
         }
         $taskData = mysqli_fetch_assoc($weekTaskTable);
     }
+    array_push($weekTasks, $dayTasks);
 }
 
 echo '<script type="text/javascript">var weekData = ' . json_encode($weekTasks) . ";</script>";
