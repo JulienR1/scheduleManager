@@ -6,7 +6,6 @@ function setup() {
   addSelectionToInputs();
   addEventsToTime();
   addEventsToQuantity();
-  addEventToUserSelects();
 }
 
 function addSelectionToInputs() {
@@ -32,13 +31,6 @@ function addEventsToQuantity() {
   });
 }
 
-function addEventToUserSelects() {
-  var selects = document.querySelectorAll(".userSelection");
-  selects.forEach((element) => {
-    element.addEventListener("click", (e) => UpdateUserSelectContent(element));
-  });
-}
-
 function toggleDayView(btn) {
   btn.parentElement.toggleAttribute(CLOSED_ATTR);
 }
@@ -47,16 +39,11 @@ function SelectAll(element) {
   element.setSelectionRange(0, element.value.length);
 }
 
-function UpdateUserSelectContent(select) {
-  /*while (select.options.length > 0) {
-    select.options[0] = null;
+function removeTask(button) {
+  var task = button.parentNode;
+  var wrapper = task.parentNode;
+  task.remove();
+  if (wrapper.childElementCount == 0) {
+    appendEmptyTask(wrapper);
   }
-  select.add(new Option("Sélectionner..", "-1", true));
-  validUsers.forEach((user) => {
-    select.add(
-      new Option(user["firstname"] + " " + user["lastname"], user["id"])
-    );
-  });*/
 }
-
-function removeTask(task) {}

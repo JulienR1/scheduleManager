@@ -43,7 +43,7 @@ function createDay(dayData, wrapper) {
   dayData.forEach((day) => {
     addTask(day, wrapper);
   });
-  addTask(null, wrapper);
+  appendEmptyTask(wrapper);
 }
 
 function addTask(data, wrapper) {
@@ -83,6 +83,13 @@ function addTask(data, wrapper) {
   }
 
   wrapper.appendChild(task);
+}
+
+function appendEmptyTask(wrapper) {
+  var emptyTask = document.createElement("DIV");
+  emptyTask.classList.add("task");
+  emptyTask.innerHTML = getDefaultTaskHTML();
+  wrapper.appendChild(emptyTask);
 }
 
 function getDefaultTaskHTML() {
