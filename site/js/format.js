@@ -1,6 +1,4 @@
-function FormatTime(element) {
-  inputStr = element.value;
-
+function FormatTime(inputStr) {
   inputStr = inputStr.replace("h", ":");
   moments = inputStr.split(":");
   hours = moments[0];
@@ -18,12 +16,12 @@ function FormatTime(element) {
   if (hours > 23) hours = "23";
   if (minutes > 59) minutes = "59";
 
-  element.value = hours + ":" + minutes;
+  return hours + ":" + minutes;
 }
 
-function FormatInteger(element) {
-  var integer = parseInt(element.value);
+function FormatInteger(inputStr) {
+  var integer = parseInt(inputStr);
   if (isNaN(integer)) integer = 0;
   if (integer < 0) integer = Math.abs(integer);
-  element.value = integer;
+  return integer;
 }

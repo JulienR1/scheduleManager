@@ -3,7 +3,7 @@
 require "php/dbHandler.php";
 
 $query = 'SELECT *
-    FROM tasks, (SELECT taskId, targetStartTime, targetEndTime, targetDate, targetQuantity, firstname, lastname
+    FROM tasks, (SELECT taskId, targetStartTime, targetEndTime, targetDate, targetQuantity, userId, firstname, lastname
                 FROM dailytasktousers, users, dailytask
                 WHERE users.id = dailytasktousers.userId
                     AND dailyTask.id = dailytasktousers.dailyTaskId
@@ -23,7 +23,7 @@ for ($i = 0; $i < 7; $i++) {
     $dayTasks = array();
 
     while ($taskData != null && date("w", strtotime($taskData["targetDate"])) == $i) {
-        $userInfo = array("firstname" => $taskData["firstname"], "lastname" => $taskData["lastname"]);
+        $userInfo = array("userId" => $taskData["userId"], "firstname" => $taskData["firstname"], "lastname" => $taskData["lastname"]);
 
         $taskInstanceCreated = false;
         for ($j = 0; $j < sizeof($dayTasks); $j++) {

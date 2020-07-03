@@ -75,35 +75,6 @@ echo '<input type="text" value="' . date("j", strtotime($date)) . '" id="weekday
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Samedi</h4>
                 <div class="wrapper shadow-bg-cell"></div>
             </div>
-            <!--<div class="wrapper shadow-bg-cell">
-              <div class="task">
-                <button onclick="removeTask(this)" type="button" class="cancel"><i class="fas fa-times"></i></button>
-                <div class="time">
-                    <input type="text" class="timeInput startTime" placeholder="Début">
-                    <p>-</p>
-                    <input type="text" class="timeInput endTime" placeholder="Fin">
-                </div>
-                <div class="title">
-                    <select name="taskName" id="taskName">
-                        <option value="Asperges">Asperges</option>
-                        <option value="Fleur de fraises">Fleurs de fraises</option>
-                    </select>
-                    <div id="qty">
-                        <span>(</span>
-                        <input type="text" placeholder="Qté">
-                        <span>)</span>
-                    </div>
-                </div>
-                <ul>
-                    <li>
-                        <select name="user1" class="userSelection">
-                            <option selected="selected">Sélectionner..</option>
-                            <option value="user1">Filip</option>
-                        </select>
-                    </li>
-                </ul>
-            </div>
-            </div>-->
         </div>
     </div>
 </main>
