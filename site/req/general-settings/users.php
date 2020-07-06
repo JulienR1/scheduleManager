@@ -1,15 +1,17 @@
 <?php
 
-require "php/dbHandler.php";
+if (isset($_SESSION["userID"]) && $_SESSION["isAdmin"]) {
+    require "php/dbHandler.php";
 
-$query = 'SELECT id, CONCAT(firstname, " ", lastname) AS fullname, email, isActive
+    $query = 'SELECT id, CONCAT(firstname, " ", lastname) AS fullname, email, isActive
             FROM users
             ORDER BY firstname ASC, lastname ASC';
-$userTable = executeSafeSQL($query);
+    $userTable = executeSafeSQL($query);
 
-$userData = null;
-while (($userData = mysqli_fetch_assoc($userTable)) != null) {
-    printUserToTable($userData);
+    $userData = null;
+    while (($userData = mysqli_fetch_assoc($userTable)) != null) {
+        printUserToTable($userData);
+    }
 }
 
 function printUserToTable($userData)

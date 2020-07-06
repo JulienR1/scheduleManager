@@ -55,9 +55,7 @@ if (isset($_GET["s"]) && $_GET["s"] == "fail") {
                         <tr>
                             <th>Tâches</th>
                         </tr>
-                        <tr>
-                            <td><input type="text"></td>
-                        </tr>
+                        <?php require "req/general-settings/tasks.php";?>
                         <tr>
                             <td><input type="text" placeholder="Ajouter.."></td>
                         </tr>
