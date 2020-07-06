@@ -28,6 +28,9 @@ if (strpos($_SESSION["currentPage"], "calendar.php") !== false) {
 if (strpos($_SESSION["currentPage"], "calendar-setup.php") !== false) {
     echo '<link rel="stylesheet" href="css/calendar-setup/calendar-setup.css">';
 }
+if(strpos($_SESSION["currentPage"],"general-settings.php")!== false){
+    echo '<link rel="stylesheet" href="css/general-settings/general-settings.css">';
+}
 ?>
 
     <script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>
@@ -85,7 +88,8 @@ if (isset($_SESSION["userID"])) {
                     <ul>
                         <li><a href="calendar.php">Seulement moi</a></li>
                         <li><a href="calendar.php?filter=all">Tout le monde</a></li>' .
-        (($_SESSION["isAdmin"]) ? '<li><a href="calendar-setup.php">Faire l\'horaire</a></li>' : "")
+        (($_SESSION["isAdmin"]) ? '<li><a href="calendar-setup.php">Faire l\'horaire</a></li>
+                                    <li><a href="general-settings.php">Généralités</a></li>' : "")
         . '</ul>';
 }
 ?>
