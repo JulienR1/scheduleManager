@@ -9,6 +9,15 @@ if (!isset($_SESSION["userID"]) || !$_SESSION["isAdmin"]) {
 <main>
     <h1>Généralités</h1>
 
+    <?php
+if (isset($_GET["s"]) && $_GET["s"] == "success") {
+    echo '<p success>Sauvegarde complétée avec succès</p>';
+}
+if (isset($_GET["s"]) && $_GET["s"] == "fail") {
+    echo '<p error>Erreur lors de la sauvegarde</p>';
+}
+?>
+
     <div id="general-container">
         <form action="php/saveSettings.php" method="post">
             <div class="list-container shadow-bg">
@@ -20,23 +29,14 @@ if (!isset($_SESSION["userID"]) || !$_SESSION["isAdmin"]) {
                     </button>
                 </h2>
 
-                <table class="input-list">
+                <table class="input-list" id="user-list">
                     <tbody>
                         <tr>
                             <th>Nom</th>
                             <th>Courriel</th>
                             <th>Actif</th>
                         </tr>
-                        <tr>
-                            <td>Julien Rousseau</td>
-                            <td>julrousseau20@gmail.com</td>
-                            <td><input type="checkbox" checked></td>
-                        </tr>
-                        <tr>
-                            <td>Fenelus Sylvain</td>
-                            <td>fenelus@gmail.com</td>
-                            <td><input type="checkbox"></td>
-                        </tr>
+                        <?php require "req/general-settings/users.php";?>
                     </tbody>
                 </table>
             </div>
@@ -50,13 +50,16 @@ if (!isset($_SESSION["userID"]) || !$_SESSION["isAdmin"]) {
                     </button>
                 </h2>
 
-                <table class="input-list">
+                <table class="input-list" id="task-list">
                     <tbody>
                         <tr>
-                            <th>Tâches</th>    
+                            <th>Tâches</th>
                         </tr>
                         <tr>
                             <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Ajouter.."></td>
                         </tr>
                     </tbody>
                 </table>

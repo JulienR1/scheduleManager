@@ -13,6 +13,8 @@ if (strpos($_SESSION["currentPage"], "calendar.php") !== false) {
 
     require "req/userTaskData.php";
     require "req/savedWeekData.php";
+} else if (strpos($_SESSION["currentPage"], "general-settings.php") != false) {
+    echo '<script src="js/general-settings/userSave.js"></script>';
 }
 ?>
 
