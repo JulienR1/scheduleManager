@@ -19,7 +19,7 @@ if (isset($_GET["s"]) && $_GET["s"] == "fail") {
 ?>
 
     <div id="general-container">
-        <form action="php/saveSettings.php" method="post">
+        <form action="php/saveSettings.php" method="post" autocomplete="off">
             <div class="list-container shadow-bg">
                 <h2>
                     <span>Employés actifs</span>
@@ -57,7 +57,7 @@ if (isset($_GET["s"]) && $_GET["s"] == "fail") {
                         </tr>
                         <?php require "req/general-settings/tasks.php";?>
                         <tr>
-                            <td><input type="text" placeholder="Ajouter.."></td>
+                            <td><input type="text" onfocusout="addNewTask(this)" placeholder="Ajouter.."></td>
                         </tr>
                     </tbody>
                 </table>

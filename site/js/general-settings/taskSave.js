@@ -2,13 +2,16 @@ var saveTaskButton = document.getElementsByName("save-tasks")[0];
 var originalTasks = [];
 var originalTaskNames = [];
 
+const taskContainer = document.querySelector("#task-list tbody");
+const addInputBoxParent = document.querySelector("#task-list tr:last-child");
+
 document.addEventListener("DOMContentLoaded", setupTask());
 
 function setupTask() {
   originalTasks = document.querySelectorAll("#task-list tr input");
   originalTasks.forEach((input) => {
     originalTaskNames.push(input.value);
-    input.addEventListener("change", function () {
+    input.addEventListener("input", function () {
       updateSaveTaskButton();
     });
   });
@@ -21,7 +24,7 @@ function updateSaveTaskButton() {
     .length;
 
   saveTaskButton.removeAttribute("isDirty");
-  saveTaskButton.disable = true;
+  saveTaskButton.disabled = true;
 
   if (currentTaskCount != originalTaskNames.length) {
     disableTaskButton();
@@ -39,4 +42,18 @@ function updateSaveTaskButton() {
 function disableTaskButton() {
   saveTaskButton.setAttribute("isDirty", "");
   saveTaskButton.disabled = false;
+}
+
+function addNewTask(button) {
+  var currentValue = button.value;
+  if (currentValue.length > 0) {
+    var newTask = document.createElement("TR");
+    var taskValue = addInputBoxParent.querySelector("input").value;
+    newTask.innerHTML =
+      '<td><input type="text" name="taskNames[]" value="' +
+      taskValue +
+      '"></td>';
+    taskContainer.insertBefore(newTask, addInputBoxParent);
+    addInputBoxParent.querySelector("input").value = "";
+  }
 }

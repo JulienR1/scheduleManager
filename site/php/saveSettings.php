@@ -32,6 +32,21 @@ if (isset($_POST["save-users"])) {
     }
 }
 if (isset($_POST["save-tasks"])) {
+    $tasks = $_POST["taskNames"];
+
+    $taskIds = executeSafeSQL("SELECT id FROM tasks ORDER BY taskName ASC");
+    $currentTaskId = "";
+    $index = 0;
+    while (($currentTaskId = mysqli_fetch_assoc($taskIds)) != null) {
+        if (strlen($tasks[$index]) > 0) {
+            executeSQL("UPDATE tasks SET taskName = ? WHERE id = " . $currentTaskId["id"], "s", $tasks[$index]);
+        }
+        $index += 1;
+    }
+    while ($index < sizeof($tasks)) {
+        executeSQL("INSERT INTO tasks (taskName) VALUES (?)", "s", $tasks[$index]);
+        $index += 1;
+    }
     successExit();
 }
 failExit();

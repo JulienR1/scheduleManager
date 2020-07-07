@@ -121,26 +121,27 @@ main p[error] {
 @media only screen and (min-width: 700px) {
   main h1 {
     padding-top: 150px;
-    font-size: clamp(24px, 2.5vw, 40px);
+    font-size: clamp(24px, 2.25vw, 40px);
   }
   main p {
     margin-top: 1%;
-    font-size: clamp(15px, 1.25vw, 22px);
+    font-size: clamp(15px, 1.15vw, 22px);
   }
   main #general-container {
-    margin: 2% 25%;
-    width: 50%;
+    margin: 2% 30%;
+    width: 40%;
   }
   #general-container .list-container {
     padding: 2.5%;
+    margin-top: 1.5%;
   }
   .list-container h2 span {
-    font-size: clamp(20px, 1.5vw, 30px);
+    font-size: clamp(20px, 1.25vw, 30px);
   }
   .list-container th,
   .list-container td,
   .list-container td input {
-    font-size: clamp(12px, 1.2vw, 20px);
+    font-size: clamp(12px, 1vw, 20px);
   }
   .list-container .activeCheckbox {
     width: 1.25vw;
