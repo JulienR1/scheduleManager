@@ -87,7 +87,7 @@ echo '<tr><th>D</th><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th>
 for ($i = 0; $i < 6; $i++) {
     echo '<tr>';
     for ($j = 0; $j < 7; $j++) {
-        $index = 6 * $i + $j;
+        $index = 7 * $i + $j;
         $isActive = date("m", strtotime($calendarData[$index]["date"])) == $month;
         echo '<td' . (!$isActive ? ' unactive' : '') . ' onclick="openDateInfos(\'' . $calendarData[$index]["date"] . '\')"' . '>';
         echo '<h4>' . date("j", strtotime($calendarData[$index]["date"])) . '</h4>';
