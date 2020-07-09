@@ -49,31 +49,45 @@ echo '<input type="text" value="' . date("j", strtotime($date)) . '" id="weekday
         <div id="day-container">
             <div class="day shadow-bg-desktop" closed>
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Dimanche</h4>
-                <div class="wrapper shadow-bg-cell"></div>
+                <div class="wrapper shadow-bg-cell">
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </div>
             <div class="day shadow-bg-desktop" closed>
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Lundi</h4>
-                <div class="wrapper shadow-bg-cell"></div>
+                <div class="wrapper shadow-bg-cell">
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </div>
             <div class="day shadow-bg-desktop" closed>
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Mardi</h4>
-                <div class="wrapper shadow-bg-cell"></div>
+                <div class="wrapper shadow-bg-cell">
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </div>
             <div class="day shadow-bg-desktop" closed>
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Mercredi</h4>
-                <div class="wrapper shadow-bg-cell"></div>
+                <div class="wrapper shadow-bg-cell">
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </div>
             <div class="day shadow-bg-desktop" closed>
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Jeudi</h4>
-                <div class="wrapper shadow-bg-cell"></div>
+                <div class="wrapper shadow-bg-cell">
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </div>
             <div class="day shadow-bg-desktop" closed>
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Vendredi</h4>
-                <div class="wrapper shadow-bg-cell"></div>
+                <div class="wrapper shadow-bg-cell">
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </div>
             <div class="day shadow-bg-desktop" closed>
                 <h4 onclick="toggleDayView(this)" class="shadow-bg">Samedi</h4>
-                <div class="wrapper shadow-bg-cell"></div>
+                <div class="wrapper shadow-bg-cell">
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </div>
         </div>
     </div>

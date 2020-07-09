@@ -6,6 +6,8 @@ function setup() {
   addSelectionToInputs();
   addEventsToTime();
   addEventsToQuantity();
+  RegisterAddTask();
+  addEventsToUserLists();
 }
 
 function addSelectionToInputs() {
@@ -18,7 +20,9 @@ function addSelectionToInputs() {
 function addEventsToTime() {
   var timeInputs = document.getElementsByClassName("timeInput");
   for (var i = 0; i < timeInputs.length; i++) {
-    timeInputs[i].addEventListener("focusout", (e) => FormatTime(e.srcElement));
+    timeInputs[i].addEventListener("focusout", (e) => {
+      e.srcElement.value = FormatTime(e.srcElement.value);
+    });
   }
 }
 
@@ -26,7 +30,7 @@ function addEventsToQuantity() {
   var quantities = document.querySelectorAll("#qty input");
   quantities.forEach((element) => {
     element.addEventListener("focusout", (e) => {
-      FormatInteger(element);
+      element.value = FormatInteger(element.value);
     });
   });
 }
@@ -42,8 +46,41 @@ function SelectAll(element) {
 function removeTask(button) {
   var task = button.parentNode;
   var wrapper = task.parentNode;
-  task.remove();
-  if (wrapper.childElementCount == 0) {
-    appendEmptyTask(wrapper);
+  if (task != wrapper.querySelector(".task:last-child")) {
+    task.remove();
+    if (wrapper.childElementCount == 1) {
+      appendEmptyTask(wrapper);
+    }
+  }
+}
+
+function addEventsToUserLists() {
+  document.querySelectorAll(".task ul").forEach((list) => {
+    list.addEventListener("change", () => {
+      updateUserList(list);
+    });
+  });
+}
+
+function RegisterAddTask() {
+  document.querySelectorAll(".day .wrapper").forEach((wrapper) => {
+    var button = wrapper.children[wrapper.children.length - 1];
+    button.addEventListener("click", () => {
+      appendEmptyTask(wrapper);
+    });
+  });
+}
+
+function updateUserList(userList) {
+  if (userList.lastChild.children[0].value != -1) {
+    var child = document.createElement("LI");
+    child.innerHTML = userList.lastChild.innerHTML;
+    userList.appendChild(child);
+    userList.lastChild.children[0].value = -1;
+  }
+  for (var i = 0; i < userList.childElementCount - 1; i++) {
+    if (userList.children[i].children[0].value == -1) {
+      userList.children[i].remove();
+    }
   }
 }

@@ -82,14 +82,16 @@ function addTask(data, wrapper) {
       selectorHtml + task.querySelector("ul").innerHTML;
   }
 
-  wrapper.appendChild(task);
+  var button = wrapper.querySelector("button");
+  wrapper.insertBefore(task, button);
 }
 
 function appendEmptyTask(wrapper) {
   var emptyTask = document.createElement("DIV");
   emptyTask.classList.add("task");
   emptyTask.innerHTML = getDefaultTaskHTML();
-  wrapper.appendChild(emptyTask);
+  var button = wrapper.children[wrapper.children.length - 1];
+  wrapper.insertBefore(emptyTask, button);
 }
 
 function getDefaultTaskHTML() {

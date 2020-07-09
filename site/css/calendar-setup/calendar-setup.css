@@ -112,6 +112,20 @@ main #day-container {
   margin-top: 5%;
 }
 
+main #day-container button {
+  display: block;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: clamp(15px, 1.25vw, 25px);
+  -webkit-transition: -webkit-transform 0.1s ease;
+  transition: -webkit-transform 0.1s ease;
+  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, -webkit-transform 0.1s ease;
+}
+
 .day {
   position: relative;
   margin-bottom: 15%;
@@ -143,6 +157,7 @@ main #day-container {
   height: 80%;
   padding: 5%;
   padding-top: 10%;
+  overflow-y: auto;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   visibility: visible;
