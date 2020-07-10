@@ -121,7 +121,7 @@ function cloneAndClearTask(wrapper, dayId) {
   addSelectionToSingleInput(qty);
 
   cloneTask.querySelector("ul").innerHTML =
-    "<li>" + getEmptyTaskDropdown() + "</li>";
+    "<li>" + getEmptyUserDropdown() + "</li>";
 
   taskNos[dayId]++;
   return cloneTask;
