@@ -60,10 +60,10 @@ function removeTask(button) {
   var wrapper = task.parentNode;
   if (task != wrapper.querySelector(".task:last-child")) {
     if (wrapper.childElementCount == 2) {
-      task.querySelector(".startTime").value = "";
-      task.querySelector(".endTime").value = "";
-      task.querySelector("#taskName").value = -1;
-      task.querySelector("#qty input").value = "";
+      task.querySelector(".startTime").value = "00:00";
+      task.querySelector(".endTime").value = "00:00";
+      task.querySelector(".taskName").value = -1;
+      task.querySelector("#qty input").value = "0";
       task.querySelector("ul").innerHTML =
         "<li>" + getEmptyTaskDropdown() + "</li>";
     } else {
@@ -84,34 +84,11 @@ function RegisterAddTask() {
   document.querySelectorAll(".day .wrapper").forEach((wrapper) => {
     var button = wrapper.children[wrapper.children.length - 1];
     button.addEventListener("click", () => {
-      var cloneTask = wrapper.children[0].cloneNode(true);
-
-      var startTime = cloneTask.querySelector(".startTime");
-      startTime.value = "";
-      addEventToSingleTime(startTime);
-      addSelectionToSingleInput(startTime);
-
-      var endTime = cloneTask.querySelector(".endTime");
-      endTime.value = "";
-      addEventToSingleTime(endTime);
-      addSelectionToSingleInput(endTime);
-
-      cloneTask.querySelector("#taskName").value = -1;
-
-      var qty = cloneTask.querySelector("#qty input");
-      qty.value = "";
-      addEventToSingleQuantity(qty);
-      addSelectionToSingleInput(qty);
-
-      cloneTask.querySelector("ul").innerHTML =
-        "<li>" + getEmptyTaskDropdown() + "</li>";
-
+      var cloneTask = cloneAndClearTask(wrapper, wrapper.getAttribute("dayId"));
       wrapper.insertBefore(cloneTask, button);
     });
   });
 }
-
-function addTaskWithEvents(parent) {}
 
 function updateUserList(userList) {
   if (userList.lastChild.children[0].value != -1) {

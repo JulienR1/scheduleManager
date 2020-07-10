@@ -78,6 +78,23 @@ main h3 button:hover i {
   transform: scale(1.15);
 }
 
+main #save {
+  display: block;
+  text-align: center;
+  margin: 0 auto 2% auto;
+  border: none;
+  outline: none;
+  font-family: "roboto-medium", Arial, Helvetica, sans-serif;
+  font-size: clamp(12px, 3vw, 30px);
+  cursor: pointer;
+  padding: 10px 30px;
+  transition: transform 0.1s ease-in-out;
+}
+
+main #save:hover {
+  transform: scaleX(1.025);
+}
+
 main #day-container {
   width: 85%;
   display: flex;
@@ -269,6 +286,10 @@ main #day-container button {
 
   main h3 select {
     min-width: 20%;
+  }
+
+  main #save {
+    font-size: clamp(12px, 1.3vw, 30px);
   }
 
   main #day-container {
