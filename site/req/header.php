@@ -28,7 +28,7 @@ if (strpos($_SESSION["currentPage"], "calendar.php") !== false) {
 if (strpos($_SESSION["currentPage"], "calendar-setup.php") !== false) {
     echo '<link rel="stylesheet" href="css/calendar-setup/calendar-setup.css">';
 }
-if(strpos($_SESSION["currentPage"],"general-settings.php")!== false){
+if (strpos($_SESSION["currentPage"], "general-settings.php") !== false) {
     echo '<link rel="stylesheet" href="css/general-settings/general-settings.css">';
 }
 ?>
