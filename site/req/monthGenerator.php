@@ -39,7 +39,7 @@ $queryTasks = "SELECT A.*, firstname, lastname
                         FROM dailytask, tasks
                         WHERE tasks.id = taskId AND targetDate BETWEEN ? AND ? " .
     ($showEveryone ? "" :
-    " AND taskId IN (SELECT dailyTaskId FROM dailytasktousers WHERE userId=?)
+    " AND dailyTask.id IN (SELECT dailyTaskId FROM dailytasktousers WHERE userId=?)
                         AND targetDate IN (SELECT targetDate FROM dailytasktousers, dailytask WHERE dailytask.id = dailyTaskId AND userId=?) ")
 
     . "ORDER BY targetDate ASC, targetStartTime ASC) AS A

@@ -8,9 +8,14 @@ if (!isset($_SESSION["userID"]) || !$_SESSION["isAdmin"]) {
 $date = date("Y-m-d");
 if (isset($_GET["d"]) && !$_GET["d"] == "") {
     $date = $_GET["d"];
-} else {
+} else if (!isset($_GET["err"])) {
     header("Location: calendar-setup.php?d=" . $date);
+    exit();
 }
+
+$daysToRemove = date("w", strtotime($date));
+$date = date("Y-m-d", strtotime($date . " - " . $daysToRemove . " days"));
+$_SESSION["currentSetupDate"] = $date;
 
 ?>
 
@@ -46,48 +51,48 @@ echo '<input type="text" value="' . date("j", strtotime($date)) . '" id="weekday
             </h3>
         </form>
 
-        <form action="php/saveTasks.php" type="get">
+        <form action="php/saveTasks.php" method="post">
             <div id="day-container">
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Dimanche</h4>
                     <div class="wrapper shadow-bg-cell" dayId="0">
-                        <button type="button"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Lundi</h4>
                     <div class="wrapper shadow-bg-cell" dayId="1">
-                        <button type="button"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Mardi</h4>
                     <div class="wrapper shadow-bg-cell" dayId="2">
-                        <button type="button"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Mercredi</h4>
                     <div class="wrapper shadow-bg-cell" dayId="3">
-                        <button type="button"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Jeudi</h4>
                     <div class="wrapper shadow-bg-cell" dayId="4">
-                        <button type="button"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Vendredi</h4>
                     <div class="wrapper shadow-bg-cell" dayId="5">
-                        <button type="button"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Samedi</h4>
                     <div class="wrapper shadow-bg-cell" dayId="6">
-                        <button type="button"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>

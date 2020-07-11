@@ -64,8 +64,8 @@ function removeTask(button) {
       task.querySelector(".endTime").value = "00:00";
       task.querySelector(".taskName").value = -1;
       task.querySelector("#qty input").value = "0";
-      task.querySelector("ul").innerHTML =
-        "<li>" + getEmptyTaskDropdown() + "</li>";
+      task.querySelector("ul").innerHTML = getEmptyUserDropdown();
+      addEventsToSingleUserList(task.querySelector("ul"));
     } else {
       task.remove();
     }
@@ -74,9 +74,13 @@ function removeTask(button) {
 
 function addEventsToUserLists() {
   document.querySelectorAll(".task ul").forEach((list) => {
-    list.addEventListener("change", () => {
-      updateUserList(list);
-    });
+    addEventsToSingleUserList(list);
+  });
+}
+
+function addEventsToSingleUserList(list) {
+  list.addEventListener("change", () => {
+    updateUserList(list);
   });
 }
 

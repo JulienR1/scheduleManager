@@ -77,7 +77,7 @@ function addTask(dayId, data, wrapper) {
     selectorHtml = "";
     data["users"].forEach((user) => {
       var tempDiv = document.createElement("DIV");
-      tempDiv.innerHTML = getEmptyUserDropdown();
+      tempDiv.innerHTML = getEmptyUserDropdown(dayId);
       tempDiv.querySelectorAll("option").forEach((userOption) => {
         userOption.removeAttribute("selected");
         if (userOption.value == user["userId"]) {
@@ -91,7 +91,7 @@ function addTask(dayId, data, wrapper) {
       selectorHtml + task.querySelector("ul").innerHTML;
   }
 
-  var button = wrapper.querySelector("button");
+  var button = wrapper.querySelector(".addButton");
   wrapper.insertBefore(task, button);
 }
 
@@ -100,28 +100,29 @@ function cloneAndClearTask(wrapper, dayId) {
 
   var startTime = cloneTask.querySelector(".startTime");
   startTime.value = "00:00";
-  startTime.name = "startTime[" + dayId + "][" + taskNos[dayId] + "]";
+  startTime.name = "week[" + dayId + "][startTime][" + taskNos[dayId] + "]";
   addEventToSingleTime(startTime);
   addSelectionToSingleInput(startTime);
 
   var endTime = cloneTask.querySelector(".endTime");
   endTime.value = "00:00";
-  endTime.name = "endTime[" + dayId + "][" + taskNos[dayId] + "]";
+  endTime.name = "week[" + dayId + "][endTime][" + taskNos[dayId] + "]";
   addEventToSingleTime(endTime);
   addSelectionToSingleInput(endTime);
 
   cloneTask.querySelector(".taskName").value = -1;
   cloneTask.querySelector(".taskName").name =
-    "taskName[" + dayId + "][" + taskNos[dayId] + "]";
+    "week[" + dayId + "][taskName][" + taskNos[dayId] + "]";
 
   var qty = cloneTask.querySelector("#qty input");
   qty.value = "0";
-  qty.name = "qty[" + dayId + "][" + taskNos[dayId] + "]";
+  qty.name = "week[" + dayId + "][qty][" + taskNos[dayId] + "]";
   addEventToSingleQuantity(qty);
   addSelectionToSingleInput(qty);
 
-  cloneTask.querySelector("ul").innerHTML =
-    "<li>" + getEmptyUserDropdown() + "</li>";
+  var list = cloneTask.querySelector("ul");
+  list.innerHTML = getEmptyUserDropdown(dayId);
+  addEventsToSingleUserList(list);
 
   taskNos[dayId]++;
   return cloneTask;
@@ -131,15 +132,15 @@ function getDefaultTaskHTML(dayId) {
   return (
     `<button onclick="removeTask(this)" type="button" class="cancel"><i class="fas fa-times"></i></button>
     <div class="time">
-        <input type="text" class="timeInput startTime" name="startTime[` +
+        <input type="text" class="timeInput startTime" name="week[` +
     dayId +
-    `][` +
+    `][startTime][` +
     taskNos[dayId] +
     `]" value="00:00">
         <p>-</p>
-        <input type="text" class="timeInput endTime" name="endTime[` +
+        <input type="text" class="timeInput endTime" name="week[` +
     dayId +
-    `][` +
+    `][endTime][` +
     taskNos[dayId] +
     `]" value="00:00">
     </div>
@@ -147,9 +148,9 @@ function getDefaultTaskHTML(dayId) {
     getEmptyTaskDropdown(dayId) +
     `<div id="qty">
             <span>(</span>
-            <input type="text" name="qty[` +
+            <input type="text" name="week[` +
     dayId +
-    `][` +
+    `][qty][` +
     taskNos[dayId] +
     `]" value="0">
             <span>)</span>
@@ -168,11 +169,11 @@ function getEmptyUserDropdown(dayId) {
   });
   return (
     `<li>
-            <select name="user-selection[` +
+            <select name="week[` +
     dayId +
-    `][` +
+    `][user-selection][` +
     taskNos[dayId] +
-    `][]" class="userSelection">
+    `][] class="userSelection">
                 <option value="-1" selected>Sélectionner..</option>` +
     userData +
     `</select>
@@ -186,9 +187,9 @@ function getEmptyTaskDropdown(dayId) {
     taskData += option;
   });
   return (
-    `<select name="taskName[` +
+    `<select name="week[` +
     dayId +
-    `][` +
+    `][taskName][` +
     taskNos[dayId] +
     `]" class="taskName">
   <option value="-1" selected>Sélectionner..</option>` +
