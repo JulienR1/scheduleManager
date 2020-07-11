@@ -94,6 +94,22 @@ main h3 button:hover i {
           transform: scale(1.15);
 }
 
+main p {
+  text-align: center;
+  margin-top: 3%;
+  padding-bottom: 6%;
+  font-family: "open-sans-bold", Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 3.5vw, 22px);
+}
+
+main p span[success] {
+  color: #00b50c;
+}
+
+main p span[error] {
+  color: #bd0027;
+}
+
 main #save {
   display: block;
   text-align: center;
@@ -151,7 +167,6 @@ main #day-container button {
   position: relative;
   margin-bottom: 15%;
   min-height: 15px;
-  max-height: 400px;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
@@ -324,6 +339,9 @@ main #day-container button {
   main #save {
     font-size: clamp(12px, 1.3vw, 30px);
   }
+  main p {
+    font-size: clamp(15px, 1.15vw, 22px);
+  }
   main #day-container {
     width: 75%;
     -webkit-box-orient: horizontal;
@@ -347,6 +365,7 @@ main #day-container button {
     min-width: 50%;
   }
   main .day .wrapper {
+    border-radius: 0;
     overflow-y: auto;
     margin: 7%;
     margin-top: 13%;

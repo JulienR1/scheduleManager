@@ -63,7 +63,6 @@ body[noscroll] {
 
 #header-toggle i:last-child {
   opacity: 0;
-  position: absolute;
   top: 1px;
 }
 

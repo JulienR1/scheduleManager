@@ -67,12 +67,7 @@ function addTask(dayId, data, wrapper) {
       data["targetQuantity"]
     );
 
-    task.querySelectorAll("#taskName option").forEach((taskOption) => {
-      taskOption.removeAttribute("selected");
-      if (taskOption.value == data["taskId"]) {
-        taskOption.setAttribute("selected", "");
-      }
-    });
+    task.querySelector(".taskName").value = data["taskId"];
 
     selectorHtml = "";
     data["users"].forEach((user) => {

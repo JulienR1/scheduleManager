@@ -8,13 +8,15 @@ if (!isset($_SESSION["userID"]) || !$_SESSION["isAdmin"]) {
 $date = date("Y-m-d");
 if (isset($_GET["d"]) && !$_GET["d"] == "") {
     $date = $_GET["d"];
-} else if (!isset($_GET["err"])) {
-    header("Location: calendar-setup.php?d=" . $date);
-    exit();
 }
-
 $daysToRemove = date("w", strtotime($date));
-$date = date("Y-m-d", strtotime($date . " - " . $daysToRemove . " days"));
+$newDate = date("Y-m-d", strtotime($date . " - " . $daysToRemove . " days"));
+if ($newDate != $date) {
+    if (!isset($_GET["err"])) {
+        header("Location: calendar-setup.php?d=" . $newDate);
+        exit();
+    }
+}
 $_SESSION["currentSetupDate"] = $date;
 
 ?>
@@ -50,6 +52,38 @@ echo '<input type="text" value="' . date("j", strtotime($date)) . '" id="weekday
                 </button>
             </h3>
         </form>
+
+        <?php
+$msgs = array();
+if (isset($_GET["err"])) {
+    if ($_GET["err"] == "sql") {
+        array_push($msgs, "<span error>Erreur lors de la sauvegarde</span>");
+    }if ($_GET["err"] == "pastDates") {
+        array_push($msgs, "<span error>Impossible de modifier le passé</span>");
+    }
+}
+if (isset($_GET["save"]) && $_GET["save"] == "success") {
+    array_push($msgs, "<span success>Sauvegarde complétée avec succès</span>");
+}
+if (isset($_GET["users"]) && $_GET["users"] == "1") {
+    array_push($msgs, "<span error>Un tâche n'avait pas d'employés</span>");
+}
+if (isset($_GET["tasks"]) && $_GET["tasks"] == "1") {
+    array_push($msgs, "<span error>Une tâche n'avait pas de sélection</span>");
+}
+
+if (sizeof($msgs) > 0) {
+    echo "<p>";
+    for ($i = 0; $i < sizeof($msgs); $i++) {
+        echo $msgs[$i];
+        if ($i < sizeof($msgs) - 1) {
+            echo "<br>";
+        }
+    }
+    echo "</p>";
+}
+
+?>
 
         <form action="php/saveTasks.php" method="post">
             <div id="day-container">

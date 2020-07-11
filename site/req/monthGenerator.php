@@ -41,7 +41,6 @@ $queryTasks = "SELECT A.*, firstname, lastname
     ($showEveryone ? "" :
     " AND dailyTask.id IN (SELECT dailyTaskId FROM dailytasktousers WHERE userId=?)
                         AND targetDate IN (SELECT targetDate FROM dailytasktousers, dailytask WHERE dailytask.id = dailyTaskId AND userId=?) ")
-
     . "ORDER BY targetDate ASC, targetStartTime ASC) AS A
             LEFT JOIN dailytasktousers ON dailytasktousers.dailyTaskId = A.id
             WHERE users.id = dailytasktousers.userId";
