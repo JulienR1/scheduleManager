@@ -79,7 +79,7 @@ function toggleHeader(e) {
 function openHeader() {
   header.removeAttribute(DOCKED_ATTR);
   main.setAttribute(DOCKED_ATTR, "");
-  toggleIcon.setAttribute(DOCKED_ATTR, "");
+  if (toggleIcon != undefined) toggleIcon.setAttribute(DOCKED_ATTR, "");
 }
 
 function closeHeader() {
