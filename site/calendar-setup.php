@@ -85,7 +85,7 @@ if (sizeof($msgs) > 0) {
 
 ?>
 
-        <form action="php/saveTasks.php" method="post">
+        <form action="php/saveTasks.php" method="post" onkeydown="return event.key != 'Enter'">
             <div id="day-container">
                 <div class="day shadow-bg-desktop" closed>
                     <h4 onclick="toggleDayView(this)" class="shadow-bg">Dimanche</h4>
