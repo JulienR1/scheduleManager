@@ -43,7 +43,8 @@ $queryTasks = "SELECT A.*, firstname, lastname
                         AND targetDate IN (SELECT targetDate FROM dailytasktousers, dailytask WHERE dailytask.id = dailyTaskId AND userId=?) ")
     . "ORDER BY targetDate ASC, targetStartTime ASC) AS A
             LEFT JOIN dailytasktousers ON dailytasktousers.dailyTaskId = A.id
-            WHERE users.id = dailytasktousers.userId";
+            WHERE users.id = dailytasktousers.userId
+            ORDER BY targetDate ASC";
 
 if ($showEveryone) {
     $taskTable = executeSQL($queryTasks, "ss", $calendarData[0], $calendarData[sizeof($calendarData) - 1]);
