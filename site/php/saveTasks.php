@@ -73,9 +73,6 @@ if (isset($_POST["save-tasks"]) && isset($_SESSION["userID"]) && isset($_SESSION
                                 $noUsers = true;
                             }
                         } else {
-                            /*       print_r($day);
-                            echo "<br>";
-                            echo "<br>";*/
                             $noTask = true;
                         }
                     }

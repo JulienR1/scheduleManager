@@ -87,48 +87,7 @@ if (sizeof($msgs) > 0) {
 
         <form action="php/saveTasks.php" method="post" onkeydown="return event.key != 'Enter'">
             <div id="day-container">
-                <div class="day shadow-bg-desktop" closed>
-                    <h4 onclick="toggleDayView(this)" class="shadow-bg">Dimanche</h4>
-                    <div class="wrapper shadow-bg-cell" dayId="0">
-                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-                <div class="day shadow-bg-desktop" closed>
-                    <h4 onclick="toggleDayView(this)" class="shadow-bg">Lundi</h4>
-                    <div class="wrapper shadow-bg-cell" dayId="1">
-                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-                <div class="day shadow-bg-desktop" closed>
-                    <h4 onclick="toggleDayView(this)" class="shadow-bg">Mardi</h4>
-                    <div class="wrapper shadow-bg-cell" dayId="2">
-                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-                <div class="day shadow-bg-desktop" closed>
-                    <h4 onclick="toggleDayView(this)" class="shadow-bg">Mercredi</h4>
-                    <div class="wrapper shadow-bg-cell" dayId="3">
-                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-                <div class="day shadow-bg-desktop" closed>
-                    <h4 onclick="toggleDayView(this)" class="shadow-bg">Jeudi</h4>
-                    <div class="wrapper shadow-bg-cell" dayId="4">
-                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-                <div class="day shadow-bg-desktop" closed>
-                    <h4 onclick="toggleDayView(this)" class="shadow-bg">Vendredi</h4>
-                    <div class="wrapper shadow-bg-cell" dayId="5">
-                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-                <div class="day shadow-bg-desktop" closed>
-                    <h4 onclick="toggleDayView(this)" class="shadow-bg">Samedi</h4>
-                    <div class="wrapper shadow-bg-cell" dayId="6">
-                        <button type="button" class="addButton"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
+                <?php require "php/weekEdition.php";?>
             </div>
             <button id="save" class="shadow-bg" type="submit" name="save-tasks">Sauvegarder</button>
         </form>

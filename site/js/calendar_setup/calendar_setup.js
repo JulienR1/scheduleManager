@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   getWrappers();
   setOptions();
   setTasks();
+  disableTasks();
 });
 
 wrappers = [];
@@ -39,6 +40,19 @@ function setTasks() {
   for (var i = 0; i < 7; i++) {
     createDay(i, weekData[i], wrappers[i]);
   }
+}
+
+function disableTasks() {
+  wrappers.forEach((wrapper) => {
+    var isReadOnly = wrapper.hasAttribute("readOnly");
+    if (isReadOnly) {
+      wrapper
+        .querySelectorAll("select, button, input")
+        .forEach((interactable) => {
+          interactable.setAttribute("disabled", "");
+        });
+    }
+  });
 }
 
 function createDay(dayId, dayData, wrapper) {
