@@ -6,7 +6,7 @@ $query = 'SELECT *
     FROM tasks, (SELECT taskId, targetStartTime, targetEndTime, targetDate, targetQuantity, userId, firstname, lastname
                 FROM dailytasktousers, users, dailytask
                 WHERE users.id = dailytasktousers.userId
-                    AND dailyTask.id = dailytasktousers.dailyTaskId
+                    AND dailytask.id = dailytasktousers.dailyTaskId
                     AND targetDate BETWEEN ? AND ?) AS A
     WHERE tasks.id = taskId
     ORDER BY targetDate, taskId';
