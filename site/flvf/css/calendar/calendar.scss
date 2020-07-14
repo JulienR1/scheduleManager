@@ -1,0 +1,253 @@
+@font-face {
+  font-family: open-sans-semibold;
+  src: url("../../assets/fonts/OpenSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: open-sans-light;
+  src: url("../../assets/fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+  font-family: roboto-light;
+  src: url("../../assets/fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+  font-family: montserrat-medium;
+  src: url("../../assets/fonts/Montserrat-Medium.ttf");
+}
+
+@import "../variables";
+
+main {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto calc(10vw + 5%);
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 40px;
+  min-height: calc(95% - 40px);
+}
+
+main > form {
+  grid-row-start: 2;
+  justify-self: center;
+}
+
+#left,
+#right {
+  border: none;
+  outline: none;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  width: clamp(20px, 10vw, 40px);
+  height: clamp(20px, 10vw, 40px);
+  margin: 10%;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+#left i,
+#right i {
+  font-size: clamp(20px, 7vw, 30px);
+  margin: 0 auto;
+  transition: transform 0.15s ease-in-out;
+}
+
+#left i {
+  padding-right: 5px;
+}
+
+#right i {
+  padding-left: 5px;
+}
+
+#left:hover i {
+  transform: translateX(-5px);
+}
+
+#right:hover i {
+  transform: translateX(5px);
+}
+
+main #calendar {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+main #calendar h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 30px;
+  padding: 10px 4%;
+}
+
+main #calendar h3 form {
+  margin: 0 auto;
+}
+
+main #calendar h3 #month {
+  font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 3vw, 25px);
+  text-transform: capitalize;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+main #calendar table {
+  width: 100%;
+  height: 90%;
+  display: flex;
+}
+
+main #calendar table tbody {
+  display: grid;
+  grid-template-rows: 2fr repeat(6, 3fr);
+  row-gap: 2px;
+  width: 100%;
+  height: 90%;
+  padding: 5%;
+  margin: 5% 0;
+  border-radius: 30px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+}
+
+main #calendar table tbody tr {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 2px;
+  text-align: center;
+}
+
+main #calendar table tbody tr th {
+  font-family: "open-sans-light", Arial, Helvetica, sans-serif;
+  font-size: clamp(8px, 3.75vw, 25px);
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
+main #calendar table tbody tr td {
+  overflow: hidden;
+  white-space: nowrap;
+  border: 1px solid #c1c1c1;
+  position: relative;
+  cursor: pointer;
+  transition: border 0.1s ease;
+}
+
+main #calendar table tbody tr td:hover {
+  border: 2px solid #c1c1c1;
+  animation: dateHover 0.2s ease;
+}
+
+@keyframes dateHover {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+main #calendar table tbody tr td[unactive] {
+  opacity: 0.6;
+}
+
+main #calendar table tbody tr td h4 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+  font-family: "roboto-light", Arial, Helvetica, sans-serif;
+  font-size: clamp(8px, 3vw, 16px);
+}
+
+main #calendar table tbody tr td .wrapper {
+  position: absolute;
+  top: 25px;
+  font-family: "montserrat-medium", Arial, Helvetica, sans-serif;
+  font-size: clamp(6px, 2vw, 14px);
+  text-align: left;
+}
+
+main #calendar table tbody tr td .wrapper p {
+  padding: 2px 3px;
+  padding-bottom: 0;
+}
+
+@media only screen and (min-width: 700px) {
+  main {
+    display: block;
+    position: relative;
+    min-height: unset;
+    height: calc(95% - #{$header-height});
+  }
+
+  #left,
+  #right {
+    position: absolute;
+    margin: 0;
+    top: 55%;
+  }
+
+  #left {
+    left: 5%;
+  }
+
+  #right {
+    right: 5%;
+  }
+
+  main #calendar {
+    margin: 0 auto;
+    width: 75%;
+    height: 90%;
+    position: relative;
+    top: 20%;
+  }
+
+  main #calendar h3 {
+    position: absolute;
+    margin: 0 auto;
+    width: fit-content;
+    left: 50%;
+    width: 30%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    padding: 4px 4%;
+  }
+
+  main #calendar h3 form {
+    display: flex;
+    align-items: center;
+  }
+
+  main #calendar h3 #month {
+    font-size: clamp(16px, 2vw, 22px);
+    margin: 0 auto;
+  }
+
+  main #calendar table tbody {
+    height: 95%;
+    margin: 0;
+    padding: 2.5% 5%;
+  }
+
+  main #calendar table tbody tr td .wrapper {
+    min-width: 100%;
+    font-size: clamp(6px, 0.9vw, 14px);
+  }
+
+  main #calendar table tbody tr td .wrapper p {
+    min-width: 100%;
+  }
+}

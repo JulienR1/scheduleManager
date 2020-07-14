@@ -1,0 +1,151 @@
+@font-face {
+  font-family: open-sans-regular;
+  src: url("../../assets/fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: open-sans-bold;
+  src: url("../../assets/fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: roboto-light;
+  src: url("../../assets/fonts/Roboto-Light.ttf");
+}
+
+main {
+  min-height: 100%;
+}
+
+main h1 {
+  padding-top: 10%;
+  text-align: center;
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  font-size: clamp(24px, 7.7vw, 40px);
+}
+
+main p {
+  text-align: center;
+  margin-top: 3%;
+  font-family: "open-sans-bold", Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 3.5vw, 22px);
+}
+
+main p[success] {
+  color: #00b50c;
+}
+
+main p[error] {
+  color: #bd0027;
+}
+
+#general-container {
+  text-align: center;
+  margin: 5%;
+  width: 90%;
+}
+
+#general-container .list-container {
+  padding: 5%;
+  margin: 7% 0;
+}
+
+.list-container h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.list-container h2 span {
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  font-size: clamp(20px, 5vw, 30px);
+}
+
+.list-container h2 button {
+  margin: auto 10px;
+  font-size: clamp(15px, 6vw, 25px);
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  opacity: 0.5;
+}
+
+.list-container h2 button[isDirty] {
+  opacity: 1;
+}
+
+.list-container h2 button .fas {
+  display: none;
+}
+
+.list-container h2 button .far {
+  display: block;
+}
+
+.list-container h2 button[isDirty] .fas {
+  display: block;
+}
+
+.list-container h2 button[isDirty] .far {
+  display: none;
+}
+
+.input-list {
+  width: 100%;
+}
+
+.input-list th {
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  font-size: clamp(12px, 3.5vw, 20px);
+}
+
+.input-list td,
+.input-list td input {
+  font-family: "roboto-light", Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 3vw, 17px);
+}
+
+.input-list td input {
+  width: 60%;
+  text-align: center;
+}
+
+@media only screen and (min-width: 700px) {
+  main h1 {
+    padding-top: 150px;
+    font-size: clamp(24px, 2.25vw, 40px);
+  }
+
+  main p {
+    margin-top: 1%;
+    font-size: clamp(15px, 1.15vw, 22px);
+  }
+
+  main #general-container {
+    margin: 2% 30%;
+    width: 40%;
+  }
+
+  #general-container .list-container {
+    padding: 2.5%;
+    margin-top: 1.5%;
+  }
+
+  .list-container h2 span {
+    font-size: clamp(20px, 1.25vw, 30px);
+  }
+
+  .list-container th,
+  .list-container td,
+  .list-container td input {
+    font-size: clamp(12px, 1vw, 20px);
+  }
+
+  .list-container .activeCheckbox {
+    width: 1.25vw;
+    height: 1.25vw;
+    cursor: pointer;
+  }
+}

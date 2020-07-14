@@ -1,0 +1,326 @@
+@font-face {
+  font-family: open-sans-regular;
+  src: url("../../assets/fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: open-sans-semibold;
+  src: url("../../assets/fonts/OpenSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: open-sans-bold;
+  src: url("../../assets/fonts/OpenSans-Bold.ttf");
+}
+
+@import "../variables";
+
+header {
+  position: fixed;
+  right: 0;
+  width: 60%;
+  z-index: 2;
+  max-width: 400px;
+  margin-top: $topMargin;
+  padding: 10% 0 40% 0;
+  overflow: hidden;
+  margin-right: auto;
+  background-color: #fff;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: $borderRadius 0px 0px $borderRadius;
+
+  transition: right $headerSlideTime ease;
+}
+
+header[isdocked] {
+  right: -65%;
+}
+
+main {
+  transition: transform $headerSlideTime ease;
+}
+
+main[isdocked] {
+  transform: translateX(-75%);
+}
+
+header h1 {
+  display: none;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #303030;
+}
+
+header figure {
+  margin: 15% 0;
+}
+
+header figure img {
+  display: block;
+  max-width: 50%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+header figure > .wrapper {
+  text-align: center;
+}
+
+header figure i {
+  font-size: 15vw;
+  text-align: center;
+}
+
+header figure figcaption {
+  margin: 10%;
+  text-align: center;
+}
+
+header figure figcaption #name {
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  font-size: clamp(13px, 4.5vw, 40px);
+  display: block;
+}
+
+header figure figcaption #name b {
+  font-family: "open-sans-bold", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+header figure figcaption button {
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 3.5vw, 25px);
+  margin: 0 auto;
+  outline: none;
+  background: none;
+  border: none;
+  display: block;
+  cursor: pointer;
+}
+
+header figure .wrapper figcaption button:hover {
+  font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+}
+
+header figure figcaption form {
+  margin: 5%;
+}
+
+header nav {
+  margin: 0 10%;
+  width: 80%;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+header nav > ul > li {
+  margin-bottom: 10px;
+}
+
+header nav ul li a {
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: clamp(7px, 3.5vw, 25px);
+  color: #303030;
+}
+
+header nav ul li a:hover {
+  font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+}
+
+header nav ul li ul li a {
+  font-size: clamp(5px, 3vw, 22px);
+}
+
+@media only screen and (min-width: 700px) {
+  header {
+    display: flex;
+    height: $header-height;
+    width: 90%;
+    overflow: visible;
+    max-width: none;
+    margin: $topMargin auto 0 auto;
+    border-radius: $borderRadius;
+    float: none;
+    padding: 0;
+
+    transition-duration: 0s;
+  }
+
+  header[isdocked] {
+    right: 5%;
+  }
+
+  main {
+    transition-duration: 0s;
+  }
+
+  main[isdocked] {
+    transform: translateX(0);
+  }
+
+  header h1 {
+    display: inline-flex;
+    font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+    font-size: clamp(18px, 1.35vw, 25px);
+    margin: 0 12px;
+    text-align: center;
+    align-self: center;
+  }
+
+  header h1 br {
+    display: block;
+  }
+
+  header nav {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    height: $header-height;
+    line-height: $header-height;
+    vertical-align: middle;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  header nav ul li a {
+    font-size: clamp(14px, 1.5vw, 18px);
+    padding: 5px 9px;
+  }
+
+  header nav ul li a:hover {
+    padding: 5px 8px;
+  }
+
+  header nav ul li ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 0 0 20px 20px;
+    padding: 10px 15px;
+    transform: translateY(-18px);
+
+    transition: all 0.2s ease;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  header nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+
+  header nav ul li ul li {
+    display: block;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  header nav ul li ul li a {
+    font-size: 15px;
+    position: relative;
+  }
+
+  header figure {
+    order: 3;
+    margin: 0 30px 0 auto;
+    text-align: right;
+    flex: 1;
+  }
+
+  header figure .wrapper {
+    height: 100%;
+    display: inline-flex;
+  }
+
+  header figure img {
+    display: inline-block;
+    height: 80%;
+    width: auto;
+    padding: 10px 4px;
+    margin: 0;
+  }
+
+  header figure i {
+    font-size: 50px;
+    display: flex;
+    align-self: center;
+  }
+
+  header figure figcaption {
+    margin: 0;
+    height: 100%;
+    display: inline-block;
+  }
+
+  header figure figcaption .wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: calc(100% - 20px);
+    padding: 10px 4px;
+    min-width: 115px;
+  }
+
+  header figure figcaption #name,
+  header figure figcaption button {
+    font-size: clamp(14px, 1.5vw, 18px);
+    transition: all 0.2s ease;
+    margin: 0 auto;
+  }
+
+  header figure .wrapper:hover figcaption #name {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  header figure figcaption form {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    margin: 0;
+  }
+
+  header figure .wrapper figcaption button {
+    text-align: center;
+    padding: 0 1px;
+  }
+
+  header figure .wrapper:hover figcaption form {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  header figure .wrapper figcaption button:hover {
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  header h1 {
+    margin: 0 50px;
+  }
+
+  header figure img {
+    padding: 10px;
+  }
+
+  header figure figcaption .wrapper {
+    padding: 10px;
+  }
+}
