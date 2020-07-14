@@ -16,6 +16,7 @@ $dayTemplate = '<div class="day shadow-bg-desktop" closed>
                 </div>';
 
 for ($i = 0; $i < sizeof($weekdays); $i++) {
-    $enabled = strtotime($date . " + " . $i . " days") > strtotime($today);
-    echo sprintf($dayTemplate, $weekdays[$i], $i, $enabled ? "" : " readonly");
+    $dayDateStr = strtotime($date . " + " . $i . " days");
+    $enabled = $dayDateStr > strtotime($today);
+    echo sprintf($dayTemplate, $weekdays[$i] . "<br><span>(" . date("j", $dayDateStr) . ")</span>", $i, $enabled ? "" : " readonly");
 }

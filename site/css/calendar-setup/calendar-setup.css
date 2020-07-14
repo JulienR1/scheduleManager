@@ -188,6 +188,10 @@ main #day-container button {
   z-index: 1;
 }
 
+.day h4 span {
+  font-size: 10px, 3vw, 22px;
+}
+
 .day .wrapper {
   position: relative;
   height: 80%;
@@ -363,6 +367,9 @@ main #day-container button {
     padding: 2% 10%;
     font-size: clamp(12px, 1.4vw, 25px);
     min-width: 50%;
+  }
+  main .day h4 span {
+    font-size: clamp(10px, 1.2vw, 22px);
   }
   main .day .wrapper {
     border-radius: 0;
