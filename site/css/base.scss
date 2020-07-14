@@ -1,0 +1,94 @@
+@import "variables";
+
+* {
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  //min-height: 100%; //calc(100% - #{$topMargin});
+  height: 100%;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+body[noscroll] {
+  overflow: hidden;
+}
+
+#dark-overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  background-color: #000;
+  z-index: 3;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+#dark-overlay[active] {
+  opacity: 0.3;
+  visibility: visible;
+}
+
+.shadow-bg,
+.shadow-bg-cell {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+#header-toggle {
+  background: none;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+#header-toggle i {
+  font-size: clamp(16px, 5vw, 25px);
+  transition: all 0.5s ease;
+}
+
+#header-toggle i:first-child {
+  opacity: 1;
+}
+
+#header-toggle i:last-child {
+  opacity: 0;
+  //position: absolute;
+  top: 1px;
+}
+
+#header-toggle[isDocked] i:first-child {
+  opacity: 0;
+}
+
+#header-toggle[isDocked] i:last-child {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 700px) {
+  #header-toggle {
+    display: none;
+  }
+
+  .shadow-bg-cell {
+    background-color: none;
+    box-shadow: none;
+  }
+
+  .shadow-bg-desktop {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    border-radius: 30px;
+  }
+}

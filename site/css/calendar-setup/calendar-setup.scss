@@ -1,0 +1,413 @@
+@font-face {
+  font-family: roboto-medium;
+  src: url("/assets/fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+  font-family: roboto-light;
+  src: url("/assets/fonts/Roboto-Light.ttf");
+}
+
+main {
+  min-height: 100%;
+}
+
+main h3 {
+  width: 85%;
+  margin: 0 auto;
+  padding: 5%;
+}
+
+main h3 .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding-right: 10px;
+}
+
+main h3 #weekday-container {
+  display: inline-flex;
+  width: fit-content;
+}
+
+main h3 #month-selection {
+  flex: 1;
+  padding: 2.5% 5%;
+}
+
+main h3 label {
+  font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 4vw, 28px);
+}
+
+main h3 select {
+  min-width: 60%;
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  padding: 3px;
+  font-size: clamp(10px, 3vw, 26px);
+}
+
+main h3 #weekday-selection {
+  padding: 2.5% 5%;
+  width: 60%;
+}
+
+main h3 #weekday-selection input {
+  width: 15%;
+  text-align: center;
+  font-family: "open-sans-regular", Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 3.25vw, 26px);
+  margin-left: 5px;
+}
+
+main h3 button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: clamp(15px, 1vw, 25px);
+  cursor: pointer;
+  padding: 8px;
+}
+
+main h3 button i {
+  transition: transform 0.1s ease-in-out;
+}
+
+main h3 button:hover i {
+  transform: scale(1.15);
+}
+
+main p {
+  text-align: center;
+  margin-top: 3%;
+  padding-bottom: 6%;
+  font-family: "open-sans-bold", Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 3.5vw, 22px);
+}
+
+main p span[success] {
+  color: #00b50c;
+}
+
+main p span[error] {
+  color: #bd0027;
+}
+
+main #save {
+  display: block;
+  text-align: center;
+  margin: 0 auto 2% auto;
+  border: none;
+  outline: none;
+  font-family: "roboto-medium", Arial, Helvetica, sans-serif;
+  font-size: clamp(12px, 3vw, 30px);
+  cursor: pointer;
+  padding: 10px 30px;
+  transition: transform 0.1s ease-in-out;
+}
+
+main #save:hover {
+  transform: scaleX(1.025);
+}
+
+main #day-container {
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+main #day-container button {
+  display: block;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: clamp(15px, 1.25vw, 25px);
+  transition: transform 0.1s ease;
+}
+
+.day {
+  position: relative;
+  margin-bottom: 15%;
+  min-height: 15px;
+  transition: all 0.25s ease-in-out;
+}
+
+.day[closed] {
+  max-height: 0;
+}
+
+.day h4 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2% 12%;
+  font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
+  font-size: clamp(12px, 4vw, 25px);
+  min-width: 25%;
+  text-align: center;
+  z-index: 1;
+}
+
+.day h4 span {
+  font-size: (10px, 3vw, 22px);
+}
+
+.day .wrapper {
+  position: relative;
+  height: 80%;
+  padding: 5%;
+  padding-top: 10%;
+
+  overflow-y: auto;
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.25s ease;
+}
+
+.day[closed] .wrapper {
+  transform: translateY(-15px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.day .wrapper .task {
+  border-left: 1px #000 solid;
+  padding-left: 7%;
+  position: relative;
+  margin-bottom: 7%;
+}
+
+.task .cancel {
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.day .wrapper .task .time {
+  display: inline-block;
+}
+
+.day .wrapper .task .time input,
+.day .wrapper .task .time p {
+  display: inline-block;
+  font-family: "roboto-medium", Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 3.5vw, 26px);
+  max-width: 20%;
+  text-align: center;
+  padding: 3px 0;
+  margin: 5px 0;
+}
+
+.day .title select,
+.day .title #qty input,
+.day .title #qty p,
+.day .title #qty span {
+  font-family: "roboto-light", Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 3vw, 26px);
+}
+
+.day .title select {
+  display: inline-block;
+  width: 70%;
+  padding: 5px;
+  margin: 3px 0;
+}
+
+.day .title #qty {
+  display: inline-block;
+  width: 25%;
+  margin-left: 3%;
+}
+
+.day .title #qty input {
+  width: 50%;
+  text-align: center;
+}
+
+.day .task ul {
+  list-style: none;
+  padding-left: 5%;
+  width: 65%;
+  margin: 10px 0;
+}
+
+.day .task ul li {
+  width: 100%;
+}
+
+.day .task ul li select {
+  width: 100%;
+  border: none;
+  font-family: "roboto-light", Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 3px 0;
+}
+
+@media only screen and (min-width: 700px) {
+  main #calendar-setup {
+    padding-top: 120px;
+  }
+
+  main h3 {
+    margin: 2.5% auto;
+    padding: 0;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  main h3 .container {
+    flex: 1;
+    justify-content: center;
+  }
+
+  main h3 .container label {
+    font-size: clamp(16px, 1.25vw, 25px);
+  }
+
+  main h3 #month-selection,
+  main h3 #weekday-selection {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  main h3 #month-selection {
+    text-align: center;
+  }
+
+  main h3 #weekday-selection {
+    width: 90%;
+  }
+
+  main h3 select,
+  main h3 #weekday-selection input {
+    font-size: clamp(14px, 1vw, 22px);
+  }
+
+  main h3 #weekday-selection input {
+    width: 25%;
+  }
+
+  main h3 select {
+    min-width: 20%;
+  }
+
+  main #save {
+    font-size: clamp(12px, 1.3vw, 30px);
+  }
+
+  main p {
+    font-size: clamp(15px, 1.15vw, 22px);
+  }
+
+  main #day-container {
+    width: 75%;
+    flex-direction: row;
+  }
+
+  main .day {
+    height: 400px;
+    width: 40%;
+    margin-bottom: 80px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  main .day[closed] {
+    max-height: 400px;
+  }
+
+  main .day h4 {
+    padding: 2% 10%;
+    font-size: clamp(12px, 1.4vw, 25px);
+    min-width: 50%;
+  }
+
+  main .day h4 span {
+    font-size: clamp(10px, 1.2vw, 22px);
+  }
+
+  main .day .wrapper {
+    border-radius: 0;
+    overflow-y: auto;
+    margin: 7%;
+    margin-top: 13%;
+    margin-right: 5%;
+    padding: 0;
+    top: 4%;
+  }
+
+  main .day[closed] .wrapper {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .day .wrapper .task {
+    padding-left: 5%;
+    margin-bottom: 10%;
+  }
+
+  .day .wrapper .task .time {
+    width: 60%;
+    position: relative;
+  }
+
+  .day .title #qty input {
+    width: 45%;
+  }
+
+  .day .wrapper .task .time input,
+  .day .wrapper .task .time p {
+    font-size: clamp(10px, 1vw, 26px);
+    max-width: 40%;
+  }
+
+  .day .title select,
+  .day .title #qty input,
+  .day .title #qty p,
+  .day .title #qty span {
+    font-size: clamp(10px, 0.8vw, 22px);
+  }
+
+  .day .title select {
+    width: 55%;
+  }
+
+  .day .task ul {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  main h3 {
+    width: 40%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  main .day {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1220px) {
+  main .day {
+    width: 22%;
+  }
+}
