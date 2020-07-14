@@ -87,7 +87,7 @@ if (sizeof($msgs) > 0) {
 
         <form action="php/saveTasks.php" method="post" onkeydown="return event.key != 'Enter'">
             <div id="day-container">
-                <?php require "php/weekEdition.php";?>
+                <?php require "req/weekEdition.php";?>
             </div>
             <button id="save" class="shadow-bg" type="submit" name="save-tasks">Sauvegarder</button>
         </form>

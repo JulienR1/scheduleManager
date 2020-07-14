@@ -1,31 +1,31 @@
 @font-face {
   font-family: open-sans-bold;
-  src: url("/assets/fonts/OpenSans-Bold.ttf");
+  src: url("../../assets/fonts/OpenSans-Bold.ttf");
 }
 
 @font-face {
   font-family: open-sans-semibold;
-  src: url("/assets/fonts/OpenSans-SemiBold.ttf");
+  src: url("../../assets/fonts/OpenSans-SemiBold.ttf");
 }
 
 @font-face {
   font-family: roboto-medium;
-  src: url("/assets/fonts/Roboto-Medium.ttf");
+  src: url("../../assets/fonts/Roboto-Medium.ttf");
 }
 
 @font-face {
   font-family: roboto-light;
-  src: url("/assets/fonts/Roboto-Light.ttf");
+  src: url("../../assets/fonts/Roboto-Light.ttf");
 }
 
 @font-face {
   font-family: roboto-thin;
-  src: url("/assets/fonts/Roboto-Thin.ttf");
+  src: url("../../assets/fonts/Roboto-Thin.ttf");
 }
 
 @font-face {
   font-family: montserrat-light;
-  src: url("/assets/fonts/Montserrat-Light.ttf");
+  src: url("../../assets/fonts/Montserrat-Light.ttf");
 }
 
 #calendar-details {
@@ -39,10 +39,8 @@
   z-index: 3;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: visibility 0.2s ease, opacity 0.2s ease;
   transition: visibility 0.2s ease, opacity 0.2s ease;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
 
 #calendar-details[active] {
@@ -54,14 +52,12 @@
   display: inline-block;
   position: relative;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
   font-size: clamp(18px, 8vw, 30px);
   padding: 3%;
   background-color: #fff;
-  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
-          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
   border-radius: 50%;
   width: 50px;
   height: 45px;
@@ -70,10 +66,8 @@
 
 #calendar-details #container {
   height: calc(95% - 50px);
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto 10%;
-      grid-template-rows: auto 10%;
+  grid-template-rows: auto 10%;
 }
 
 #calendar-details #container button {
@@ -81,8 +75,7 @@
   position: relative;
   margin: 0 auto;
   top: 40%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   font-family: "open-sans-bold", Arial, Helvetica, sans-serif;
   background: none;
   outline: none;
@@ -142,18 +135,23 @@
     width: 60%;
     left: 20%;
   }
+
   main #calendar-details #container button {
     top: 50%;
   }
+
   main #calendar-details .task h5 {
     font-size: clamp(15px, 1.5vw, 24px);
   }
+
   main #calendar-details .task h6 {
     font-size: clamp(12px, 1.25vw, 22px);
   }
+
   main #calendar-details .task h6 span {
     font-size: clamp(12px, 1.1vw, 22px);
   }
+
   main #calendar-details .task ul li {
     font-size: clamp(14px, 1.1vw, 22px);
   }
@@ -165,4 +163,3 @@
     left: 30%;
   }
 }
-/*# sourceMappingURL=calendar-details.css.map */

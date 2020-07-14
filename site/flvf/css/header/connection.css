@@ -1,16 +1,16 @@
 @font-face {
   font-family: montserrat-bold;
-  src: url("/assets/fonts/Montserrat-bold.ttf");
+  src: url("../../assets/fonts/Montserrat-bold.ttf");
 }
 
 @font-face {
   font-family: montserrat-semibold;
-  src: url("/assets/fonts/Montserrat-semibold.ttf");
+  src: url("../../assets/fonts/Montserrat-semibold.ttf");
 }
 
 @font-face {
   font-family: montserrat-light;
-  src: url("/assets/fonts/Montserrat-Light.ttf");
+  src: url("../../assets/fonts/Montserrat-Light.ttf");
 }
 
 .error-msg {

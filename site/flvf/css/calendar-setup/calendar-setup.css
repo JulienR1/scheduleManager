@@ -1,11 +1,11 @@
 @font-face {
   font-family: roboto-medium;
-  src: url("/assets/fonts/Roboto-Medium.ttf");
+  src: url("../../assets/fonts/Roboto-Medium.ttf");
 }
 
 @font-face {
   font-family: roboto-light;
-  src: url("/assets/fonts/Roboto-Light.ttf");
+  src: url("../../assets/fonts/Roboto-Light.ttf");
 }
 
 main {
@@ -19,20 +19,32 @@ main h3 {
 }
 
 main h3 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 10px 0;
   padding-right: 10px;
 }
 
 main h3 #weekday-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
 main h3 #month-selection {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   padding: 2.5% 5%;
 }
 
@@ -71,11 +83,15 @@ main h3 button {
 }
 
 main h3 button i {
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
 
 main h3 button:hover i {
-  transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 main p {
@@ -104,19 +120,31 @@ main #save {
   font-size: clamp(12px, 3vw, 30px);
   cursor: pointer;
   padding: 10px 30px;
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
 
 main #save:hover {
-  transform: scaleX(1.025);
+  -webkit-transform: scaleX(1.025);
+          transform: scaleX(1.025);
 }
 
 main #day-container {
   width: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0 auto;
   margin-top: 5%;
 }
@@ -129,13 +157,17 @@ main #day-container button {
   outline: none;
   cursor: pointer;
   font-size: clamp(15px, 1.25vw, 25px);
+  -webkit-transition: -webkit-transform 0.1s ease;
+  transition: -webkit-transform 0.1s ease;
   transition: transform 0.1s ease;
+  transition: transform 0.1s ease, -webkit-transform 0.1s ease;
 }
 
 .day {
   position: relative;
   margin-bottom: 15%;
   min-height: 15px;
+  -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
 
@@ -146,7 +178,8 @@ main #day-container button {
 .day h4 {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   padding: 2% 12%;
   font-family: "open-sans-semibold", Arial, Helvetica, sans-serif;
   font-size: clamp(12px, 4vw, 25px);
@@ -156,7 +189,7 @@ main #day-container button {
 }
 
 .day h4 span {
-  font-size: (10px, 3vw, 22px);
+  font-size: 10px, 3vw, 22px;
 }
 
 .day .wrapper {
@@ -164,16 +197,18 @@ main #day-container button {
   height: 80%;
   padding: 5%;
   padding-top: 10%;
-
   overflow-y: auto;
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
   visibility: visible;
   opacity: 1;
+  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 
 .day[closed] .wrapper {
-  transform: translateY(-15px);
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
   opacity: 0;
   visibility: hidden;
 }
@@ -262,64 +297,62 @@ main #day-container button {
   main #calendar-setup {
     padding-top: 120px;
   }
-
   main h3 {
     margin: 2.5% auto;
     padding: 0;
     width: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
-
   main h3 .container {
-    flex: 1;
-    justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
-
   main h3 .container label {
     font-size: clamp(16px, 1.25vw, 25px);
   }
-
   main h3 #month-selection,
   main h3 #weekday-selection {
     padding-top: 0;
     padding-bottom: 0;
   }
-
   main h3 #month-selection {
     text-align: center;
   }
-
   main h3 #weekday-selection {
     width: 90%;
   }
-
   main h3 select,
   main h3 #weekday-selection input {
     font-size: clamp(14px, 1vw, 22px);
   }
-
   main h3 #weekday-selection input {
     width: 25%;
   }
-
   main h3 select {
     min-width: 20%;
   }
-
   main #save {
     font-size: clamp(12px, 1.3vw, 30px);
   }
-
   main p {
     font-size: clamp(15px, 1.15vw, 22px);
   }
-
   main #day-container {
     width: 75%;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
-
   main .day {
     height: 400px;
     width: 40%;
@@ -327,21 +360,17 @@ main #day-container button {
     margin-left: 1.5%;
     margin-right: 1.5%;
   }
-
   main .day[closed] {
     max-height: 400px;
   }
-
   main .day h4 {
     padding: 2% 10%;
     font-size: clamp(12px, 1.4vw, 25px);
     min-width: 50%;
   }
-
   main .day h4 span {
     font-size: clamp(10px, 1.2vw, 22px);
   }
-
   main .day .wrapper {
     border-radius: 0;
     overflow-y: auto;
@@ -351,44 +380,37 @@ main #day-container button {
     padding: 0;
     top: 4%;
   }
-
   main .day[closed] .wrapper {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
-
   .day .wrapper .task {
     padding-left: 5%;
     margin-bottom: 10%;
   }
-
   .day .wrapper .task .time {
     width: 60%;
     position: relative;
   }
-
   .day .title #qty input {
     width: 45%;
   }
-
   .day .wrapper .task .time input,
   .day .wrapper .task .time p {
     font-size: clamp(10px, 1vw, 26px);
     max-width: 40%;
   }
-
   .day .title select,
   .day .title #qty input,
   .day .title #qty p,
   .day .title #qty span {
     font-size: clamp(10px, 0.8vw, 22px);
   }
-
   .day .title select {
     width: 55%;
   }
-
   .day .task ul {
     width: 85%;
   }
@@ -400,7 +422,6 @@ main #day-container button {
     padding-left: 5%;
     padding-right: 5%;
   }
-
   main .day {
     width: 30%;
   }
@@ -411,3 +432,4 @@ main #day-container button {
     width: 22%;
   }
 }
+/*# sourceMappingURL=calendar-setup.css.map */

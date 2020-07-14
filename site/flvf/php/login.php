@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$pageToLoad = isset($_SESSION["currentPage"]) ? $_SESSION["currentPage"] : "/index.php";
+$pageToLoad = isset($_SESSION["currentPage"]) ? $_SESSION["currentPage"] : "/flvf/index.php";
 
 if (isset($_POST["login-submit"])) {
 

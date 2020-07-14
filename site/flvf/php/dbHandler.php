@@ -43,7 +43,7 @@ if (!function_exists("executeSQL")) {
         global $conn;
         connect();
 
-        $pageToLoad = isset($_SESSION["currentPage"]) ? $_SESSION["currentPage"] : "/index.php";
+        $pageToLoad = isset($_SESSION["currentPage"]) ? $_SESSION["currentPage"] : "/flvf/index.php";
 
         $statement = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($statement, $query)) {

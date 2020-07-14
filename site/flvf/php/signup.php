@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$pageToLoad = isset($_SESSION["currentPage"]) ? $_SESSION["currentPage"] : "/index.php";
+$pageToLoad = isset($_SESSION["currentPage"]) ? $_SESSION["currentPage"] : "/flvf/index.php";
 
 if (isset($_POST["signup-submit"])) {
 
@@ -48,7 +48,7 @@ if (isset($_POST["signup-submit"])) {
             $_SESSION["userID"] = mysqli_fetch_assoc(executeSQL("SELECT id FROM users WHERE email=?", "s", $email))["id"];
             $_SESSION["userFirstname"] = $firstname;
             $_SESSION["userLastname"] = $lastname;
-            $_SESSION["isAdmin"] = FALSE;
+            $_SESSION["isAdmin"] = false;
             $_SESSION["userImg"] = null;
 
             header("Location: " . $pageToLoad . "?signup=s");

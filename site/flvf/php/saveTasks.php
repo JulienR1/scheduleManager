@@ -90,5 +90,5 @@ if (isset($_POST["save-tasks"]) && isset($_SESSION["userID"]) && isset($_SESSION
     header("Location: ../calendar-setup.php?d=" . $weekStartDate . "&save=success");
     exit();
 }
-header("Location: /");
+header("Location: /flvf/index.php");
 exit();
