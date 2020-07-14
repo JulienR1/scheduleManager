@@ -21,6 +21,9 @@ $_SESSION["currentPage"] = $_SERVER["PHP_SELF"];
     <link rel="stylesheet" href="css/header/connection.css">
 
     <?php
+if(strpos($_SESSION["currentPage"],"index.php")!==false){
+    echo '<link rel="stylesheet" href="css/index/style.css">';
+}
 if (strpos($_SESSION["currentPage"], "calendar.php") !== false) {
     echo '<link rel="stylesheet" href="css/calendar/calendar.css">';
     echo '<link rel="stylesheet" href="css/calendar/calendar-details.css">';
