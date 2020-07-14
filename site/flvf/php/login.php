@@ -27,6 +27,7 @@ if (isset($_POST["login-submit"])) {
                 $_SESSION["userLastname"] = $row["lastname"];
                 $_SESSION["userImg"] = $row["img"];
                 $_SESSION["isAdmin"] = $row["isAdmin"];
+                $_SESSION["isActive"] = $row["isActive"];
 
                 header("Location: " . $pageToLoad . "?login=s");
                 exit();

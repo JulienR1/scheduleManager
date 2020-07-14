@@ -35,10 +35,10 @@ if (isset($_POST["save-tasks"]) && isset($_SESSION["userID"]) && isset($_SESSION
     $noTask = false;
     $noUsers = false;
     $partial = false;
-    $dayCount = 0;
+    $dayCount = 7 - sizeof($_POST["week"]);
+
     foreach ($_POST["week"] as $day) {
         $targetDate = date("Y-m-d", strtotime($weekStartDate . "+" . $dayCount . " days"));
-
         if (strtotime($targetDate) >= strtotime($actualStartDate)) {
             $referenceCount = -1;
             $sameSize = true;
@@ -53,6 +53,7 @@ if (isset($_POST["save-tasks"]) && isset($_SESSION["userID"]) && isset($_SESSION
             if ($sameSize) {
                 for ($i = 0; $i < $referenceCount; $i++) {
                     if (!($day["taskName"][$i] == -1 && $day["startTime"][$i] == "00:00" && $day["endTime"][$i] == "00:00" && $day["qty"][$i] == 0)) {
+                        echo "saving  ";
                         if ($day["taskName"][$i] != -1) {
                             $containedUsers = false;
 

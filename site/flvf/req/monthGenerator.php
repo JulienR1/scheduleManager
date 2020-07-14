@@ -91,7 +91,7 @@ for ($i = 0; $i < 6; $i++) {
         $isActive = date("m", strtotime($calendarData[$index]["date"])) == $month;
         echo '<td' . (!$isActive ? ' unactive' : '') . ' onclick="openDateInfos(\'' . $calendarData[$index]["date"] . '\')"' . '>';
         echo '<h4>' . date("j", strtotime($calendarData[$index]["date"])) . '</h4>';
-        if (isset($_SESSION["userID"])) {
+        if (isset($_SESSION["userID"]) && $_SESSION["isActive"]) {
             if ($calendarData[$index]["tasks"] != null) {
                 echo '<div class="wrapper">';
                 foreach ($calendarData[$index]['tasks'] as $task) {

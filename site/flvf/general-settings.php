@@ -2,7 +2,7 @@
 require "req/header.php";
 
 if (!isset($_SESSION["userID"]) || !$_SESSION["isAdmin"]) {
-    header("Location: /");
+    header("Location: /flvf/index.php");
 }
 ?>
 

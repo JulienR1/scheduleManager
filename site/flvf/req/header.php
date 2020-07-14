@@ -21,7 +21,7 @@ $_SESSION["currentPage"] = $_SERVER["PHP_SELF"];
     <link rel="stylesheet" href="css/header/connection.css">
 
     <?php
-if(strpos($_SESSION["currentPage"],"index.php")!==false){
+if (strpos($_SESSION["currentPage"], "index.php") !== false) {
     echo '<link rel="stylesheet" href="css/index/style.css">';
 }
 if (strpos($_SESSION["currentPage"], "calendar.php") !== false) {
@@ -45,7 +45,7 @@ if (strpos($_SESSION["currentPage"], "general-settings.php") !== false) {
     echo "isDocked";
 }
 ?>>
-        <h1><a href="/">Ferme<br>les Vieilles Forges</a></h1>
+        <h1><a href="/flvf/">Ferme<br>les Vieilles Forges</a></h1>
 
         <figure>
             <div class="wrapper">
