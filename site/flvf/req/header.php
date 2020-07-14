@@ -97,8 +97,8 @@ if (isset($_SESSION["userID"])) {
 }
 ?>
                 </li>
-                <li><a href="#">Mes dispos</a></li>
-                <li><a href="#">Mes heures</a></li>
+                <!--     <li><a href="#">Mes dispos</a></li>
+                <li><a href="#">Mes heures</a></li> -->
             </ul>
         </nav>
     </header>
@@ -131,7 +131,7 @@ function getDataFromURL($tag)
         </form>
 
         <button class="navButton" onclick="openSignup()">Créer un compte</button>
-        <button class="navButton" onclick="openForgotPassword()">Mot de passe oublié?</button>
+        <!--    <button class="navButton" onclick="openForgotPassword()">Mot de passe oublié?</button> -->
     </section>
 
     <section id="signup" <?php if (isset($_GET["signup"]) && $_GET["signup"] == "f") {echo 'active';}?>>

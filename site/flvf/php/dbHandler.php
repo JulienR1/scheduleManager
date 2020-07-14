@@ -7,9 +7,9 @@ if (!function_exists("connect")) {
     {
         global $conn;
         $server = "localhost";
-        $username = "root";
-        $password = "Julien_SqlDEV";
-        $database = "flvf_dev";
+        $username = "u392992418_root";
+        $password = "k7Y!J8W^";
+        $database = "u392992418_flvf";
 
         $conn = mysqli_connect($server, $username, $password, $database);
         if (!$conn) {
